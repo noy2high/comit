@@ -1,41 +1,34 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #1abc9c;
+/* Loader styles */
+.loader {
+    width: 60px;
+    aspect-ratio: 1;
+    background: linear-gradient(#dc1818 0 0) bottom/100% 0% no-repeat #ccc;
+    -webkit-mask: 
+      radial-gradient(circle at 60% 65%, #000 62%, #0000 65%) top left, 
+      radial-gradient(circle at 40% 65%, #000 62%, #0000 65%) top right, 
+      linear-gradient(to bottom left, #000 42%,#0000 43%) bottom left , 
+      linear-gradient(to bottom right,#000 42%,#0000 43%) bottom right;
+    -webkit-mask-size: 50% 50%;
+    -webkit-mask-repeat: no-repeat;
+    animation: l19 2s infinite linear;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
 }
 
-h1 {
-    color: #ff6347;
-}
-/* Base styles for desktop */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #008080; /* Teal color */
-    margin: 0;
-    padding: 0;
+/* Animation for the loader */
+@keyframes l19 {
+    90%,100% {background-size:100% 100%}
 }
 
-h1 {
-    color: #ff6347;
-    font-size: 2rem;
+/* Hide the loader when content is loaded */
+.hide-loader {
+    display: none;
 }
 
-/* Responsive design for phones */
-@media (max-width: 600px) {
-    body {
-        font-size: 16px;
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-    }
-}
-body {
-    font-size: 1rem; /* Base font size */
-}
-
-h1 {
-    font-size: 2rem; /* Adjust as needed */
+/* Main content styling */
+.content {
+    display: none; /* Hide content initially */
 }
