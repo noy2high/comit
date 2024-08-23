@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(() => {
             loader.classList.add('hide-loader');
             content.style.display = 'block';
-        }, 500); // Adjust timeout as needed
+        }, 4000); // Match the duration of the CSS animation (4s in this case)
     } else {
         console.error('Loader or content not found');
     }
