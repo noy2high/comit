@@ -8,6 +8,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1000; /* Ensure loader is above other content */
 }
 
 @keyframes l3 {
@@ -15,17 +16,8 @@
 }
 
 /* Hide content initially */
-.hide-loader {
-  display: none;
-}
-
-/* Show content after loading */
-.show-content {
-  display: block;
-}
-
-/* Style content */
 .content {
+  display: none; /* Hide content by default */
   text-align: center;
   margin-top: 50px;
   padding: 20px;
