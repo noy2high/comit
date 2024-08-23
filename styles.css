@@ -30,3 +30,10 @@
 .content {
     display: none; /* Hide content initially */
 }
+
+/* Background color for the page */
+body {
+    background-color: #aaddce; /* Set background color */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Optional: Set a default font */
+}
