@@ -1,27 +1,36 @@
 /* Loader styles */
 .loader {
     width: 60px;
-    aspect-ratio: 1;
-    background: linear-gradient(#dc1818 0 0) bottom/100% 0% no-repeat #ccc;
-    -webkit-mask: 
-      radial-gradient(circle at 60% 65%, #000 62%, #0000 65%) top left, 
-      radial-gradient(circle at 40% 65%, #000 62%, #0000 65%) top right, 
-      linear-gradient(to bottom left, #000 42%,#0000 43%) bottom left , 
-      linear-gradient(to bottom right,#000 42%,#0000 43%) bottom right;
-    -webkit-mask-size: 50% 50%;
-    -webkit-mask-repeat: no-repeat;
-    animation: l19 2s infinite linear;
+    height: 60px; /* Set height to match width */
+    background: #ccc; /* Default background */
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-    background-color: #f00; /* Temporary background color for visibility */
 }
 
-/* Animation for the loader */
-@keyframes l19 {
-    90%,100% {background-size:100% 100%}
+/* Heart shape loader animation */
+.loader::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #dc1818; /* Red color */
+    clip-path: path('M30,4 A14,14 0 0,1 46,20 A14,14 0 0,1 62,4 A14,14 0 0,1 30,4 Z'); /* Heart shape */
+    transform: scaleY(0); /* Start with heart not filled */
+    transform-origin: bottom; /* Animation grows from bottom */
+    animation: fill-heart 4s ease-out forwards; /* Adjust duration as needed */
+}
+
+/* Keyframes for heart fill animation */
+@keyframes fill-heart {
+    from {
+        transform: scaleY(0); /* Start with heart not filled */
+    }
+    to {
+        transform: scaleY(1); /* End with heart fully filled */
+    }
 }
 
 /* Hide the loader when content is loaded */
