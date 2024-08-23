@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(() => {
             loader.classList.add('hide-loader'); // Hide the loader
             content.style.display = 'block';     // Show the content
-        }, 7000); // Match the duration of the CSS animation (7s in this case)
+        }, 7000); // Match the duration of the desired delay (7s in this case)
     } else {
         console.error('Loader or content not found');
     }
