@@ -1,7 +1,9 @@
 /* Loader styles */
 .loader {
-    width: 100px; /* Increase size for better visibility */
-    height: 100px; /* Increase size for better visibility */
+    width: calc(80px / cos(45deg));
+    height: 14px;
+    background: repeating-linear-gradient(-45deg, #000 0 15px, #0000 0 20px) left/200% 100%;
+    animation: l3 2s infinite linear;
     position: fixed;
     left: 50%;
     top: 50%;
@@ -9,42 +11,10 @@
     z-index: 1000;
 }
 
-/* Heart shape loader animation */
-.loader::before {
-    content: '';
-    display: block;
-    width: 100px; /* Match width with the loader */
-    height: 100px; /* Match height with the loader */
-    background: #dc1818; /* Red color */
-    position: relative;
-    border-radius: 50% 50% 0 0; /* Create the top two rounded parts */
-    transform: rotate(-45deg); /* Rotate to form a heart shape */
-    transform-origin: center; /* Rotate around center */
-    animation: fill-heart 7s ease-out forwards; /* Duration set to 7 seconds */
-}
-
-/* Additional pseudo-elements for the heart shape */
-.loader::after {
-    content: '';
-    display: block;
-    width: 100px; /* Match width with the loader */
-    height: 100px; /* Match height with the loader */
-    background: #dc1818; /* Red color */
-    position: absolute;
-    border-radius: 50% 50% 0 0; /* Create the top two rounded parts */
-    transform: rotate(45deg); /* Rotate to form a heart shape */
-    transform-origin: center; /* Rotate around center */
-    top: 0; /* Align with the top of the loader */
-    left: 0; /* Align with the left of the loader */
-}
-
-/* Keyframes for heart fill animation */
-@keyframes fill-heart {
-    from {
-        opacity: 0; /* Start with heart not visible */
-    }
-    to {
-        opacity: 1; /* End with heart fully visible */
+/* Keyframes for the stripe animation */
+@keyframes l3 {
+    100% {
+        background-position: right;
     }
 }
 
