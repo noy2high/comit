@@ -36,4 +36,5 @@ body {
     background-color: #aaddce; /* Set background color */
     margin: 0;
     font-family: Arial, sans-serif; /* Optional: Set a default font */
+    overflow: hidden; /* Prevents scrollbars if not needed */
 }
