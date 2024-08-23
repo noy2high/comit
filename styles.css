@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #1abc9c;
+}
+
+h1 {
+    color: #ff6347;
+}
+/* Base styles for desktop */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #008080; /* Teal color */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #ff6347;
+    font-size: 2rem;
+}
+
+/* Responsive design for phones */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+body {
+    font-size: 1rem; /* Base font size */
+}
+
+h1 {
+    font-size: 2rem; /* Adjust as needed */
+}
