@@ -20,7 +20,7 @@
     clip-path: path('M30,4 A14,14 0 0,1 46,20 A14,14 0 0,1 62,4 A14,14 0 0,1 30,4 Z'); /* Heart shape */
     transform: scaleY(0); /* Start with heart not filled */
     transform-origin: bottom; /* Animation grows from bottom */
-    animation: fill-heart 4s ease-out forwards; /* Adjust duration as needed */
+    animation: fill-heart 7s ease-out forwards; /* Duration set to 7 seconds */
 }
 
 /* Keyframes for heart fill animation */
