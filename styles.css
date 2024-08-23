@@ -1,56 +1,40 @@
-/* General reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Loader styles */
+/* Basic styling for loader */
 .loader {
-    width: 80px; /* Fixed width for better visibility */
-    height: 14px;
-    background: repeating-linear-gradient(-45deg, #5ca194 0 15px, transparent 15px 30px) left/200% 100%;
-    animation: l3 2s linear infinite;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); /* Center the loader */
-    z-index: 1000;
+  width: calc(80px / cos(45deg));
+  height: 14px;
+  background: repeating-linear-gradient(-45deg, #5ca194 0 15px, #5ca194 0 20px) left/200% 100%;
+  animation: l3 2s infinite linear;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* Keyframes for the stripe animation */
 @keyframes l3 {
-    0% {
-        background-position: left;
-    }
-    100% {
-        background-position: right;
-    }
+  100% { background-position: right; }
 }
 
-/* Hide the loader when content is loaded */
+/* Hide content initially */
 .hide-loader {
-    display: none;
+  display: none;
 }
 
-/* Main content styling */
+/* Show content after loading */
+.show-content {
+  display: block;
+}
+
+/* Style content */
 .content {
-    display: none; /* Hide content initially */
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
 }
 
-/* Background color for the page */
-body {
-    background-color: #aaddce; /* Set background color */
-    font-family: Arial, sans-serif; /* Set a default font */
-    overflow: hidden; /* Prevent scrollbars if not needed */
-    height: 100vh; /* Ensure the body takes full height */
-    display: flex;
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-}
-
-/* Make sure the content and loader are centered */
-.loader,
-.content {
-    text-align: center;
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .content {
+    margin-top: 20px;
+    padding: 10px;
+  }
 }
