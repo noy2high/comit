@@ -1,3 +1,10 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Loader styles */
 .loader {
     width: 80px; /* Fixed width for better visibility */
@@ -34,7 +41,16 @@
 /* Background color for the page */
 body {
     background-color: #aaddce; /* Set background color */
-    margin: 0;
-    font-family: Arial, sans-serif; /* Optional: Set a default font */
-    overflow: hidden; /* Prevents scrollbars if not needed */
+    font-family: Arial, sans-serif; /* Set a default font */
+    overflow: hidden; /* Prevent scrollbars if not needed */
+    height: 100vh; /* Ensure the body takes full height */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+/* Make sure the content and loader are centered */
+.loader,
+.content {
+    text-align: center;
 }
