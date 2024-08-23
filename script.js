@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Check if loader and content exist
     if (loader && content) {
         setTimeout(() => {
-            loader.classList.add('hide-loader');
-            content.style.display = 'block';
-        }, 4000); // Match the duration of the CSS animation (4s in this case)
+            loader.classList.add('hide-loader'); // Hide the loader
+            content.style.display = 'block';     // Show the content
+        }, 7000); // Match the duration of the CSS animation (7s in this case)
     } else {
         console.error('Loader or content not found');
     }
