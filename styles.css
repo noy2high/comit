@@ -15,12 +15,20 @@
   100% { background-position: right; }
 }
 
-/* Hide content initially */
+/* Style content */
 .content {
   display: none; /* Hide content by default */
   text-align: center;
   margin-top: 50px;
   padding: 20px;
+}
+
+/* Set background color */
+body {
+  background-color: #aaddce;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 /* Mobile responsiveness */
