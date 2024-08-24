@@ -1,18 +1,14 @@
-/* Existing styles (for example) */
+/* Base styles */
 body {
     margin: 0;
     padding: 0;
-    /* Other existing styles */
-}
-
-/* New background setup */
-body {
-    background-color: #1d8a8a; /* Tosca color as the base */
     position: relative;
-    overflow: hidden; /* Ensures no scrollbars if the image extends beyond viewport */
+    overflow: hidden; /* Prevent scrollbars if the image extends beyond the viewport */
+    background-color: #1d8a8a; /* Tosca color */
+    height: 100vh; /* Ensure full viewport height */
 }
 
-/* Background image layer */
+/* Background image setup */
 body::before {
     content: "";
     position: absolute;
@@ -21,7 +17,7 @@ body::before {
     width: 100%;
     height: 100%;
     background: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center;
-    background-size: cover;
+    background-size: cover; /* Cover the entire viewport */
     z-index: 1; /* Ensure it's below the overlay */
 }
 
@@ -41,28 +37,35 @@ body::after {
 #content {
     position: relative;
     z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure it occupies full viewport height */
 }
 
-/* Loading animation (example) */
+/* Loading animation styles */
 .loader {
     width: 85px;
     height: 25px;
-    --g1:conic-gradient(from  90deg at left   3px top   3px,#0000 90deg,#fff 0);
-    --g2:conic-gradient(from -90deg at bottom 3px right 3px,#0000 90deg,#fff 0);
-    background:var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);
-    background-position: left,center,right;
+    --g1: conic-gradient(from 90deg at left 3px top 3px, #0000 90deg, #fff 0);
+    --g2: conic-gradient(from -90deg at bottom 3px right 3px, #0000 90deg, #fff 0);
+    background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);
+    background-position: left, center, right;
     background-repeat: no-repeat;
     animation: l8 1s infinite;
 }
 
-/* Keyframes for the loading animation */
+/* Keyframes for loading animation */
 @keyframes l8 {
-  0%   {background-size:25px 100%,25px 100%,25px 100%}
-  20%  {background-size:25px 50% ,25px 100%,25px 100%}
-  40%  {background-size:25px 50% ,25px 50% ,25px 100%}
-  60%  {background-size:25px 100%,25px 50% ,25px 50% }
-  80%  {background-size:25px 100%,25px 100%,25px 50% }
-  100% {background-size:25px 100%,25px 100%,25px 100%}
+    0% { background-size: 25px 100%, 25px 100%, 25px 100% }
+    20% { background-size: 25px 50%, 25px 100%, 25px 100% }
+    40% { background-size: 25px 50%, 25px 50%, 25px 100% }
+    60% { background-size: 25px 100%, 25px 50%, 25px 50% }
+    80% { background-size: 25px 100%, 25px 100%, 25px 50% }
+    100% { background-size: 25px 100%, 25px 100%, 25px 100% }
 }
 
-/* Other existing styles */
+/* Hide content initially */
+#content img {
+    display: none;
+}
