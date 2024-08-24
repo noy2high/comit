@@ -1,9 +1,10 @@
 /* General body styling */
 body {
-  background-color: #aaddce;
+  background-color: #aaddce !important;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  height: 100vh;
 }
 
 /* Styling for loader */
@@ -11,7 +12,7 @@ body {
   width: 80px;
   height: 14px;
   background: repeating-linear-gradient(-45deg, #5ca194 0 15px, transparent 0 20px);
-  animation: l3 7s linear infinite;
+  animation: l3 7s linear infinite !important;
   position: fixed;
   top: 50%;
   left: 50%;
