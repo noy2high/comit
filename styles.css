@@ -1,3 +1,11 @@
+/* General body styling */
+body {
+  background-color: #aaddce;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
 /* Styling for loader */
 .loader {
   width: 80px;
@@ -11,6 +19,7 @@
   z-index: 1000;
 }
 
+/* Keyframes for loading animation */
 @keyframes l3 {
   0% {
     background-position: 0 0;
@@ -20,7 +29,7 @@
   }
 }
 
-/* Style content */
+/* Styling for content */
 .content {
   display: none;
   text-align: center;
@@ -28,6 +37,10 @@
   padding: 20px;
 }
 
-/* Set background color */
-body {
-  background-c
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .content {
+    margin-top: 20px;
+    padding: 10px;
+  }
+}
