@@ -1,6 +1,7 @@
-window.addEventListener("load", function() {
+document.addEventListener('DOMContentLoaded', function() {
+    // Hide the loader and show content after 7 seconds
     setTimeout(function() {
-        document.getElementById("loader").style.display = "none"; // Hide loading animation
-        document.getElementById("content").style.display = "block"; // Show the image
-    }, 7000); // Wait for 7 seconds
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('content').style.display = 'flex'; // Ensure content is displayed
+    }, 7000);
 });
