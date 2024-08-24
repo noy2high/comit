@@ -1,26 +1,41 @@
-/* Ensure the HTML and body are set to full height */
+/* Base styles for the body and html */
 html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
-}
-
-/* Loader Styling */
-#loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.75); /* Black overlay with 75% opacity */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000; /* Ensure the loader is on top */
+    width: 100%;
+    overflow: hidden;
 }
 
-/* New Loader Animation */
-.loader {
+/* Background and overlay styles */
+body {
+    background: tosca;
+    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-color: tosca; /* fallback color */
+}
+
+#content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#content img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+#loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 50px;
     aspect-ratio: 1;
     color: #dc1818;
@@ -34,7 +49,7 @@ html, body {
     position: relative;
 }
 
-.loader:after {
+#loader:after {
     content: "";
     position: absolute;
     inset: 0;
@@ -44,43 +59,20 @@ html, body {
 }
 
 @keyframes l3 {
-    to { transform: scale(1.8); opacity: 0; }
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
 }
 
-/* Content Container */
-#content {
-    position: absolute;
+/* Overlay for darkening effect */
+.overlay {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 500; /* Ensure the content is above the background */
-    visibility: hidden; /* Hide content initially */
-}
-
-/* Show content after loading */
-#content.show {
-    visibility: visible;
-}
-
-/* Background Settings */
-body {
-    background-color: #4dc1c9; /* Tosca color as the base */
-    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
-    background-size: cover;
-    background-repeat: repeat-y; /* Repeat the background image vertically */
-    background-position: center;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-/* Image Styling */
-#content img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain; /* Ensures the image fits within its container */
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.75;
+    z-index: 0;
 }
