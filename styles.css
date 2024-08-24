@@ -19,27 +19,32 @@ html, body {
     z-index: 1000; /* Ensure the loader is on top */
 }
 
-/* Loader Animation */
+/* New Loader Animation */
 .loader {
-    width: 85px;
-    height: 25px;
-    --g1: conic-gradient(from 90deg at left 3px top 3px, #0000 90deg, #fff 0);
-    --g2: conic-gradient(from -90deg at bottom 3px right 3px, #0000 90deg, #fff 0);
-    background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);
-    background-position: left, center, right;
+    width: 50px;
+    aspect-ratio: 1;
+    color: #dc1818;
+    background:
+        radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+        radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+        linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+        linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+    background-size: 50% 50%;
     background-repeat: no-repeat;
-    animation: l8 1s infinite;
-    margin: auto; /* Center horizontally */
+    position: relative;
 }
 
-/* Keyframes for the loader animation */
-@keyframes l8 {
-    0% { background-size: 25px 100%, 25px 100%, 25px 100%; }
-    20% { background-size: 25px 50%, 25px 100%, 25px 100%; }
-    40% { background-size: 25px 50%, 25px 50%, 25px 100%; }
-    60% { background-size: 25px 100%, 25px 50%, 25px 50%; }
-    80% { background-size: 25px 100%, 25px 100%, 25px 50%; }
-    100% { background-size: 25px 100%, 25px 100%, 25px 100%; }
+.loader:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0.4;
+    animation: l3 1s infinite;
+}
+
+@keyframes l3 {
+    to { transform: scale(1.8); opacity: 0; }
 }
 
 /* Content Container */
@@ -54,7 +59,6 @@ html, body {
     justify-content: center;
     z-index: 500; /* Ensure the content is above the background */
     visibility: hidden; /* Hide content initially */
-    background-color: rgba(0, 0, 0, 0.75); /* Black overlay with 75% opacity */
 }
 
 /* Show content after loading */
