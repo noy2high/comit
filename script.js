@@ -1,13 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Ensure the background color is applied
-    document.body.style.backgroundColor = '#aaddce';
+window.addEventListener('load', function() {
+  const loading = document.getElementById('loading');
+  const content = document.getElementById('content');
 
-    // Ensure the loader is visible
-    document.querySelector('.loader').style.display = 'block';
-
-    // Wait for the specified duration before showing content
-    setTimeout(function() {
-        document.querySelector('.loader').style.display = 'none'; // Hide the loader
-        document.querySelector('.content').style.display = 'block'; // Show the content
-    }, 7000); // 7 seconds duration
+  // Hide the loading screen and show the content
+  loading.style.display = 'none';
+  content.style.display = 'block';
 });
