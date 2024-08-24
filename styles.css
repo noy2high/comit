@@ -1,23 +1,16 @@
-/* General styles for the page */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
-
-/* Styles for the background and content alignment */
+/* General Styles */
 body {
-    background-color: #25b09b; /* Teal background color */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent scrollbars during loading */
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    color: #fff;
-    text-align: center;
+    height: 100vh;
+    background-color: #f0f0f0; /* Background color */
 }
 
-/* Styles for the loading animation */
+/* Loader Styles */
 .loader {
     width: 85px;
     height: 25px;
@@ -27,49 +20,34 @@ body {
     background-position: left, center, right;
     background-repeat: no-repeat;
     animation: l8 1s infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Keyframes for the loading animation */
 @keyframes l8 {
-    0% { background-size: 25px 100%, 25px 100%, 25px 100% }
-    20% { background-size: 25px 50%, 25px 100%, 25px 100% }
-    40% { background-size: 25px 50%, 25px 50%, 25px 100% }
-    60% { background-size: 25px 100%, 25px 50%, 25px 50% }
-    80% { background-size: 25px 100%, 25px 100%, 25px 50% }
-    100% { background-size: 25px 100%, 25px 100%, 25px 100% }
+    0%   { background-size: 25px 100%, 25px 100%, 25px 100%; }
+    20%  { background-size: 25px 50%, 25px 100%, 25px 100%; }
+    40%  { background-size: 25px 50%, 25px 50%, 25px 100%; }
+    60%  { background-size: 25px 100%, 25px 50%, 25px 50%; }
+    80%  { background-size: 25px 100%, 25px 100%, 25px 50%; }
+    100% { background-size: 25px 100%, 25px 100%, 25px 100%; }
 }
 
-/* Styles for the content that appears after loading */
+/* Content Styles */
 .content {
-    display: none;
-    position: relative;
-    z-index: 1;
+    display: none; /* Hide content initially */
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Styles for the main text */
-h1 {
-    font-size: 2em;
-    margin: 0;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 1.5em;
-    margin: 0;
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 600px) {
-    .loader {
-        width: 65px;
-        height: 20px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    h2 {
-        font-size: 1.2em;
-    }
+.birthday-image {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
