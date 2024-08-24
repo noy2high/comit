@@ -1,4 +1,13 @@
-/* Loading Animation */
+body {
+    background-color: teal;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Loader */
 .loader {
     width: 85px;
     height: 25px;
@@ -8,55 +17,17 @@
     background-position: left, center, right;
     background-repeat: no-repeat;
     animation: l8 1s infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes l8 {
-    0%   { background-size: 25px 100%, 25px 100%, 25px 100% }
-    20%  { background-size: 25px 50%, 25px 100%, 25px 100% }
-    40%  { background-size: 25px 50%, 25px 50%, 25px 100% }
-    60%  { background-size: 25px 100%, 25px 50%, 25px 50% }
-    80%  { background-size: 25px 100%, 25px 100%, 25px 50% }
-    100% { background-size: 25px 100%, 25px 100%, 25px 100% }
-}
-
-/* Centered Image */
-.content {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.birthday-image {
-    display: block;
-    margin: 0 auto;
-    width: 80%; /* Adjust width as needed */
-    max-width: 600px; /* Adjust max width as needed */
-    height: auto;
-}
-
-/* Body and HTML Styles */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-html, body {
-    height: 100%;
-}
-
-/* Loader Container */
-.loader-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f0f0f0;
+    0% {background-size: 25px 100%, 25px 100%, 25px 100%}
+    20% {background-size: 25px 50%, 25px 100%, 25px 100%}
+    40% {background-size: 25px 50%, 25px 50%, 25px 100%}
+    60% {background-size: 25px 100%, 25px 50%, 25px 50%}
+    80% {background-size: 25px 100%, 25px 100%, 25px 50%}
+    100% {background-size: 25px 100%, 25px 100%, 25px 100%}
 }
