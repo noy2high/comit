@@ -1,33 +1,40 @@
 body {
-    background-color: teal;
     margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #25b09b; /* Background color */
+    font-family: Arial, sans-serif;
 }
 
-/* Loader */
 .loader {
     width: 85px;
     height: 25px;
-    --g1: conic-gradient(from 90deg at left 3px top 3px, #0000 90deg, #fff 0);
-    --g2: conic-gradient(from -90deg at bottom 3px right 3px, #0000 90deg, #fff 0);
-    background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);
-    background-position: left, center, right;
+    --g1:conic-gradient(from  90deg at left   3px top   3px,#0000 90deg,#fff 0);
+    --g2:conic-gradient(from -90deg at bottom 3px right 3px,#0000 90deg,#fff 0);
+    background:var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);
+    background-position: left,center,right;
     background-repeat: no-repeat;
     animation: l8 1s infinite;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 @keyframes l8 {
-    0% {background-size: 25px 100%, 25px 100%, 25px 100%}
-    20% {background-size: 25px 50%, 25px 100%, 25px 100%}
-    40% {background-size: 25px 50%, 25px 50%, 25px 100%}
-    60% {background-size: 25px 100%, 25px 50%, 25px 50%}
-    80% {background-size: 25px 100%, 25px 100%, 25px 50%}
-    100% {background-size: 25px 100%, 25px 100%, 25px 100%}
+  0%   {background-size:25px 100%,25px 100%,25px 100%}
+  20%  {background-size:25px 50% ,25px 100%,25px 100%}
+  40%  {background-size:25px 50% ,25px 50% ,25px 100%}
+  60%  {background-size:25px 100%,25px 50% ,25px 50% }
+  80%  {background-size:25px 100%,25px 100%,25px 50% }
+  100% {background-size:25px 100%,25px 100%,25px 100%}
+}
+
+#content {
+    display: none; /* Initially hide the content */
+    text-align: center;
+}
+
+#content img {
+    max-width: 100%;
+    height: auto;
 }
