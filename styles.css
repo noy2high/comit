@@ -19,10 +19,10 @@
     100% { background-size: 25px 100%, 25px 100%, 25px 100% }
 }
 
-/* Style for the Image */
+/* Centered Image */
 .content {
     text-align: center;
-    margin-top: 50px; /* Adjust as needed */
+    margin-top: 50px;
 }
 
 .birthday-image {
@@ -33,12 +33,11 @@
     height: auto;
 }
 
-/* Ensure body and html are styled correctly */
+/* Body and HTML Styles */
 body {
-    font-family: Arial, sans-serif; /* Adjust as needed */
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0; /* Ensure background color */
+    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +48,7 @@ html, body {
     height: 100%;
 }
 
-/* Optional: Add any additional styling needed for the loader container */
+/* Loader Container */
 .loader-container {
     position: fixed;
     top: 0;
@@ -59,5 +58,5 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f0f0f0; /* Same as body background color */
+    background: #f0f0f0;
 }
