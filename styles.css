@@ -1,4 +1,4 @@
-/* Reset some default styles */
+/* General styles for the page */
 body, html {
     margin: 0;
     padding: 0;
@@ -6,40 +6,47 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
+/* Styles for the background and content alignment */
 body {
     background-color: #25b09b; /* Teal background color */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    color: #fff; /* White text color */
-}
-
-.loader {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 100px;
-    height: 100px;
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #fff; /* White */
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    transform: translate(-50%, -50%);
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.content {
-    display: none; /* Hide content initially */
+    color: #fff;
     text-align: center;
+}
+
+/* Styles for the loading animation */
+.loader {
+    width: 85px;
+    height: 25px;
+    --g1: conic-gradient(from 90deg at left 3px top 3px, #0000 90deg, #fff 0);
+    --g2: conic-gradient(from -90deg at bottom 3px right 3px, #0000 90deg, #fff 0);
+    background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);
+    background-position: left, center, right;
+    background-repeat: no-repeat;
+    animation: l8 1s infinite;
+}
+
+/* Keyframes for the loading animation */
+@keyframes l8 {
+    0% { background-size: 25px 100%, 25px 100%, 25px 100% }
+    20% { background-size: 25px 50%, 25px 100%, 25px 100% }
+    40% { background-size: 25px 50%, 25px 50%, 25px 100% }
+    60% { background-size: 25px 100%, 25px 50%, 25px 50% }
+    80% { background-size: 25px 100%, 25px 100%, 25px 50% }
+    100% { background-size: 25px 100%, 25px 100%, 25px 100% }
+}
+
+/* Styles for the content that appears after loading */
+.content {
+    display: none;
     position: relative;
     z-index: 1;
 }
 
+/* Styles for the main text */
 h1 {
     font-size: 2em;
     margin: 0;
@@ -51,12 +58,11 @@ h2 {
     margin: 0;
 }
 
-/* Mobile responsiveness */
+/* Responsive design for smaller screens */
 @media (max-width: 600px) {
     .loader {
-        width: 80px;
-        height: 80px;
-        border-width: 12px;
+        width: 65px;
+        height: 20px;
     }
 
     h1 {
