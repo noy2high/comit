@@ -1,9 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loader = document.querySelector('.loader');
+window.addEventListener('load', function() {
+    const loaderContainer = document.querySelector('.loader-container');
     const content = document.querySelector('.content');
 
-    setTimeout(() => {
-        loader.style.display = 'none';
-        content.style.display = 'block';
-    }, 3000); // Adjust time as needed
+    loaderContainer.style.display = 'none';
+    content.style.display = 'block';
 });
