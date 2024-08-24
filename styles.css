@@ -1,14 +1,49 @@
+/* Existing styles (for example) */
 body {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #25b09b; /* Background color */
-    font-family: Arial, sans-serif;
+    /* Other existing styles */
 }
 
+/* New background setup */
+body {
+    background-color: #1d8a8a; /* Tosca color as the base */
+    position: relative;
+    overflow: hidden; /* Ensures no scrollbars if the image extends beyond viewport */
+}
+
+/* Background image layer */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1; /* Ensure it's below the overlay */
+}
+
+/* Black overlay layer */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+    z-index: 2; /* Ensure it's above the background image */
+}
+
+/* Content styles */
+#content {
+    position: relative;
+    z-index: 3;
+}
+
+/* Loading animation (example) */
 .loader {
     width: 85px;
     height: 25px;
@@ -20,6 +55,7 @@ body {
     animation: l8 1s infinite;
 }
 
+/* Keyframes for the loading animation */
 @keyframes l8 {
   0%   {background-size:25px 100%,25px 100%,25px 100%}
   20%  {background-size:25px 50% ,25px 100%,25px 100%}
@@ -29,14 +65,4 @@ body {
   100% {background-size:25px 100%,25px 100%,25px 100%}
 }
 
-#content {
-    display: none; /* Initially hide the content */
-    text-align: center;
-}
-
-#content img {
-    display: block; /* Ensure the image is displayed as a block element */
-    margin: 0 auto; /* Center the image horizontally */
-    max-width: 100%;
-    height: auto;
-}
+/* Other existing styles */
