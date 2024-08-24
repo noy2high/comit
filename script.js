@@ -1,8 +1,7 @@
-window.addEventListener('load', function() {
-  const loading = document.getElementById('loading');
-  const content = document.getElementById('content');
-
-  // Hide the loading screen and show the content
-  loading.style.display = 'none';
-  content.style.display = 'block';
+document.addEventListener('DOMContentLoaded', function() {
+    // Simulate a loading process
+    setTimeout(function() {
+        document.querySelector('.loader').style.display = 'none'; // Hide the loader
+        document.querySelector('.content').style.display = 'block'; // Show the content
+    }, 3000); // Adjust time as needed (3000ms = 3 seconds)
 });
