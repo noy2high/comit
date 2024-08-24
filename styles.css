@@ -1,47 +1,18 @@
-/* General body styling */
-body {
-  background-color: #aaddce !important;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  height: 100vh;
-}
-
-/* Styling for loader */
+/* Loading animation styles */
 .loader {
-  width: 80px;
-  height: 14px;
-  background: repeating-linear-gradient(-45deg, #5ca194 0 15px, transparent 0 20px);
-  animation: l3 7s linear infinite !important;
-  position: fixed;
-  top: 50%;
+  position: absolute;
   left: 50%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #25b09b; /* Teal */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
   transform: translate(-50%, -50%);
-  z-index: 1000;
 }
 
-/* Keyframes for loading animation */
-@keyframes l3 {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-/* Styling for content */
-.content {
-  display: none;
-  text-align: center;
-  margin-top: 50px;
-  padding: 20px;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 600px) {
-  .content {
-    margin-top: 20px;
-    padding: 10px;
-  }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
