@@ -17,6 +17,9 @@ html, body {
     align-items: center;
     justify-content: center;
     z-index: 1000; /* Ensure the loader is on top */
+    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png'); /* Background image */
+    background-size: cover; /* Cover the entire loader area */
+    background-repeat: repeat-y; /* Repeat the background image vertically */
 }
 
 /* Loader Animation */
@@ -53,6 +56,7 @@ html, body {
     justify-content: center;
     z-index: 500; /* Ensure the content is above the background */
     visibility: hidden; /* Hide content initially */
+    background-color: rgba(0, 0, 0, 0.75); /* Black overlay with 75% opacity */
 }
 
 /* Show content after loading */
