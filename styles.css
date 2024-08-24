@@ -20,6 +20,7 @@ html, body {
     background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png'); /* Background image */
     background-size: cover; /* Cover the entire loader area */
     background-repeat: repeat-y; /* Repeat the background image vertically */
+    background-position: center;
 }
 
 /* Loader Animation */
@@ -71,6 +72,9 @@ body {
     background-size: cover;
     background-repeat: repeat-y; /* Repeat the background image vertically */
     background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 /* Image Styling */
