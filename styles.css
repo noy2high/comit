@@ -35,6 +35,8 @@ body {
 }
 
 #content img {
+    display: block; /* Ensure the image is displayed as a block element */
+    margin: 0 auto; /* Center the image horizontally */
     max-width: 100%;
     height: auto;
 }
