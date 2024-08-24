@@ -1,28 +1,28 @@
 /* Styling for loader */
 .loader {
-  width: calc(80px / cos(45deg));
+  width: 80px;
   height: 14px;
-  background: repeating-linear-gradient(-45deg, #5ca194 0 15px, #5ca194 0 20px) left/200% 100%;
-  animation: l3 7s infinite linear; /* Duration of 7 seconds */
+  background: repeating-linear-gradient(-45deg, #5ca194 0 15px, transparent 0 20px);
+  animation: l3 7s linear infinite;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000; /* Keep loader on top */
+  z-index: 1000;
 }
 
 @keyframes l3 {
   0% {
-    background-position: left;
+    background-position: 0 0;
   }
   100% {
-    background-position: right;
+    background-position: 200% 0;
   }
 }
 
 /* Style content */
 .content {
-  display: none; /* Hidden until loader finishes */
+  display: none;
   text-align: center;
   margin-top: 50px;
   padding: 20px;
@@ -33,4 +33,13 @@ body {
   background-color: #aaddce;
   margin: 0;
   padding: 0;
-  font-family: Aria
+  font-family: Arial, sans-serif;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .content {
+    margin-top: 20px;
+    padding: 10px;
+  }
+}
