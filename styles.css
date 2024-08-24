@@ -1,26 +1,25 @@
-/* Base styles for the whole page */
-body {
+/* Ensure the HTML and body are set to full height */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevent scrolling when loading animation is visible */
-    position: relative; /* Ensure body is positioned relative for absolute children */
 }
 
-/* Loader styles */
+/* Loader Styling */
 #loader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.75); /* Dark overlay with 75% opacity */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* Black overlay with 75% opacity */
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999; /* Ensure it is on top */
+    z-index: 1000; /* Ensure the loader is on top */
 }
 
-/* Loader animation */
+/* Loader Animation */
 .loader {
     width: 85px;
     height: 25px;
@@ -32,50 +31,47 @@ body {
     animation: l8 1s infinite;
 }
 
+/* Keyframes for the loader animation */
 @keyframes l8 {
-    0% { background-size: 25px 100%, 25px 100%, 25px 100% }
-    20% { background-size: 25px 50%, 25px 100%, 25px 100% }
-    40% { background-size: 25px 50%, 25px 50%, 25px 100% }
-    60% { background-size: 25px 100%, 25px 50%, 25px 50% }
-    80% { background-size: 25px 100%, 25px 100%, 25px 50% }
-    100% { background-size: 25px 100%, 25px 100%, 25px 100% }
+    0% { background-size: 25px 100%, 25px 100%, 25px 100%; }
+    20% { background-size: 25px 50%, 25px 100%, 25px 100%; }
+    40% { background-size: 25px 50%, 25px 50%, 25px 100%; }
+    60% { background-size: 25px 100%, 25px 50%, 25px 50%; }
+    80% { background-size: 25px 100%, 25px 100%, 25px 50%; }
+    100% { background-size: 25px 100%, 25px 100%, 25px 100%; }
 }
 
-/* Content styles */
+/* Content Container */
 #content {
-    display: none; /* Hide content until loading animation is done */
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    z-index: 1; /* Ensure it's above the background */
-}
-
-/* Background image */
-body::before {
-    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 200%; /* Adjust height to ensure it covers the viewport and allows scrolling */
-    background: tosca; /* Base color */
-    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
-    background-size: cover; /* Cover the entire area */
-    background-repeat: repeat-y; /* Repeat only vertically */
-    background-position: center; /* Center the image */
-    opacity: 0.75; /* 75% opacity for overlay */
-    z-index: 0; /* Ensure it's behind everything else */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 500; /* Ensure the content is above the background */
+    visibility: hidden; /* Hide content initially */
 }
 
-/* Mobile responsiveness */
-@media screen and (max-width: 600px) {
-    .loader {
-        width: 60px; /* Adjust loader size for small screens */
-        height: 20px;
-    }
+/* Show content after loading */
+#content.show {
+    visibility: visible;
+}
 
-    #content img {
-        max-width: 100%; /* Ensure the image fits within the viewport */
-        height: auto; /* Maintain aspect ratio */
-    }
+/* Background Settings */
+body {
+    background-color: #4dc1c9; /* Tosca color as the base */
+    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
+    background-size: cover;
+    background-repeat: repeat-y; /* Repeat the background image vertically */
+    background-position: center;
+}
+
+/* Image Styling */
+#content img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* Ensures the image fits within its container */
 }
