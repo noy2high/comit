@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Get elements
+    const loader = document.getElementById('loader');
+    const content = document.getElementById('content');
+    
+    // Show content after 7 seconds
     setTimeout(() => {
-        document.getElementById('loader').style.display = 'none';
-        document.getElementById('content').classList.add('show');
-    }, 7000); // Show content after 7 seconds
+        loader.style.display = 'none'; // Hide the loader
+        content.classList.remove('hidden'); // Show the content
+    }, 7000);
 });
