@@ -17,10 +17,6 @@ html, body {
     align-items: center;
     justify-content: center;
     z-index: 1000; /* Ensure the loader is on top */
-    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png'); /* Background image */
-    background-size: cover; /* Cover the entire loader area */
-    background-repeat: repeat-y; /* Repeat the background image vertically */
-    background-position: center;
 }
 
 /* Loader Animation */
@@ -33,6 +29,7 @@ html, body {
     background-position: left, center, right;
     background-repeat: no-repeat;
     animation: l8 1s infinite;
+    margin: auto; /* Center horizontally */
 }
 
 /* Keyframes for the loader animation */
