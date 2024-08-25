@@ -44,6 +44,8 @@ body {
 #content {
     display: none;
     margin-top: 10vh; /* Pushes the image down from the top */
+    width: 100%;
+    text-align: center;
 }
 
 #content img {
