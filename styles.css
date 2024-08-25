@@ -57,7 +57,12 @@ body {
 }
 
 #content img {
-    max-width: 160%; /* Increase from 80% to 160% */
-    height: auto;
-    max-height: 160vh; /* Increase from 80vh to 160vh */
+    max-width: 80%; /* Adjust as needed */
+    max-height: 80vh; /* Adjust as needed */
+}
+
+/* Background settings */
+body {
+    background: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center fixed;
+    background-size: cover; /* Cover the entire background */
 }
