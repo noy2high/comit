@@ -1,6 +1,6 @@
-window.addEventListener('load', () => {
-    setTimeout(() => {
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
         document.getElementById('loader').style.display = 'none';
-        document.getElementById('content').classList.remove('hidden');
-    }, 7000); // 7 seconds delay
+        document.getElementById('content').style.display = 'block';
+    }, 7000); // 7 seconds loading time
 });
