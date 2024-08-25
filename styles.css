@@ -3,10 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #00796b; /* Tosca color */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -18,10 +15,10 @@ body, html {
     height: 100%;
     background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     z-index: -1;
-    opacity: 0.75; /* Darken overlay */
-    background-color: rgba(0, 0, 0, 0.75); /* 75% black overlay */
+    opacity: 0.75; /* 75% black overlay */
+    background-color: rgba(0, 0, 0, 0.75); /* Black overlay */
 }
 
 /* Loading Animation */
@@ -58,18 +55,17 @@ body, html {
 /* Content Styles */
 #content {
     display: none;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     z-index: 1;
-    position: relative;
 }
 
 #orphic-image {
     width: 80%;
     max-width: 600px;
-    margin-top: 20px; /* Adjusts the image's vertical position */
 }
 
 @media (max-width: 768px) {
