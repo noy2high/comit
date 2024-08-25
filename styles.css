@@ -1,60 +1,24 @@
 body {
     margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-                url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    overflow: hidden;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-}
-
-.loader {
-    width: 50px;
-    aspect-ratio: 1;
-    color:#dc1818;
-    background:
-        radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
-        radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-        linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left ,
-        linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;
-    background-size: 50% 50%;
-    background-repeat: no-repeat;
-    position: relative;
-}
-
-.loader:after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: inherit;
-    opacity: 0.4;
-    animation: l3 1s infinite;
-}
-
-@keyframes l3 {
-    to {transform:scale(1.8);opacity:0}
+    background: linear-gradient(black 75%, transparent 25%), url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center fixed;
+    background-size: cover;
 }
 
 #content {
-    display: none;
-    margin-top: 10vh; /* Pushes the image down from the top */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
     width: 100%;
     text-align: center;
 }
 
 #content img {
+    margin-top: 10%;
     max-width: 80%;
     height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.show-content #content {
-    display: block;
 }
