@@ -1,47 +1,31 @@
-/* Background and overlay */
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #40E0D0; /* Tosca background color */
-    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
-    background-size: contain; /* Adjust to fit */
-    background-repeat: repeat-y; /* Allows scrolling down */
-    position: relative;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
 }
 
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75); /* 75% black overlay */
-    z-index: 1;
-}
-
-/* Loader */
 .loader {
     width: 50px;
     aspect-ratio: 1;
-    color: #dc1818;
+    color:#dc1818;
     background:
         radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
         radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-        linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
-        linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+        linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left ,
+        linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;
     background-size: 50% 50%;
     background-repeat: no-repeat;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+    position: relative;
 }
 
 .loader:after {
@@ -54,23 +38,21 @@ body::before {
 }
 
 @keyframes l3 {
-    to {
-        transform: scale(1.8);
-        opacity: 0;
-    }
+    to {transform:scale(1.8);opacity:0}
 }
 
-/* Content (Orphic Image) */
 #content {
-    display: none; /* Hidden initially */
-    position: absolute;
-    top: 10%; /* Positioned near the top */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
+    display: none;
+    margin-top: 10vh; /* Pushes the image down from the top */
 }
 
 #content img {
-    max-width: 90%;
+    max-width: 80%;
     height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.show-content #content {
+    display: block;
 }
