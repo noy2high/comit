@@ -1,24 +1,80 @@
-body {
+/* General Styles */
+body, html {
     margin: 0;
-    height: 100vh;
+    padding: 0;
+    height: 100%;
+    background-color: #00796b; /* Tosca color */
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(black 75%, transparent 25%), url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center fixed;
-    background-size: cover;
+    overflow: hidden;
 }
 
-#content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    text-align: center;
+    height: 100%;
+    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.75; /* Darken overlay */
+    background-color: rgba(0, 0, 0, 0.75); /* 75% black overlay */
 }
 
-#content img {
-    margin-top: 10%;
-    max-width: 80%;
-    height: auto;
+/* Loading Animation */
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    color: #dc1818;
+    background:
+        radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+        radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+        linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+        linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0.4;
+    animation: l3 1s infinite;
+}
+
+@keyframes l3 {
+    to { transform: scale(1.8); opacity: 0; }
+}
+
+/* Content Styles */
+#content {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+#orphic-image {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 20px; /* Adjusts the image's vertical position */
+}
+
+@media (max-width: 768px) {
+    #orphic-image {
+        width: 100%;
+        max-width: 300px;
+    }
 }
