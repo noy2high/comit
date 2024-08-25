@@ -1,83 +1,85 @@
-/* Base styles for the body */
+/* Base Styles */
 body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden; /* Prevent scrolling during loading screen */
-  background-color: #00B3A6; /* Tosca color as the base background */
-  position: relative; /* Positioning context for absolute children */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: tosca;
+    color: white;
+    overflow: hidden;
 }
 
-/* Loader styles */
+/* Background Setup */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: -1;
+}
+
+/* Loader Styles */
 .loader {
-  width: 50px;
-  aspect-ratio: 1;
-  color: #dc1818;
-  background:
-    radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
-    radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-    linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
-    linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
-  background-size: 50% 50%;
-  background-repeat: no-repeat;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+    width: 50px;
+    aspect-ratio: 1;
+    color: #dc1818;
+    background:
+        radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+        radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+        linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+        linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .loader:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: inherit;
-  opacity: 0.4;
-  animation: l3 1s infinite;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0.4;
+    animation: l3 1s infinite;
 }
 
 @keyframes l3 {
-  to { transform: scale(1.8); opacity: 0; }
+    to {transform: scale(1.8); opacity: 0;}
 }
 
-/* Content visibility after loading */
+/* Content Styles */
 #content {
-  display: none; /* Hide content initially */
-  text-align: center;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
 }
 
-/* Styling for the Orphic image */
 #content img {
-  max-width: 80%;
-  height: auto;
-  max-height: 80vh;
-  display: block;
-  margin: 0 auto;
+    max-width: 90%;
+    height: auto;
+    max-height: 80vh;
 }
 
-/* Background image and overlay */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center fixed;
-  background-size: cover;
-  z-index: -1; /* Place background behind other content */
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75); /* 75% opacity black overlay */
-  z-index: -1; /* Place overlay behind content */
-  pointer-events: none; /* Make sure overlay doesn’t block interactions */
+.hidden {
+    display: none;
 }
