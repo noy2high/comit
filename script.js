@@ -1,79 +1,59 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loader = document.getElementById('loader');
-    const stage2 = document.getElementById('stage2');
-    const stage3 = document.getElementById('stage3');
-    const bukaAku = document.getElementById('buka-aku');
-    const loveLetter = document.getElementById('love-letter');
-    const next = document.getElementById('next');
-    const previous = document.getElementById('previous');
-    const close = document.getElementById('close');
-    const fallingImagesContainer = document.getElementById('falling-images');
+// Stage control
+function showStage2() {
+    document.getElementById('loading-screen').classList.add('hidden');
+    document.getElementById('stage2').classList.remove('hidden');
+}
 
-    // Show stage 2 after 7 seconds
-    setTimeout(() => {
-        loader.style.display = 'none';
-        stage2.style.display = 'flex';
-    }, 7000);
+function showStage3() {
+    document.getElementById('stage2').classList.add('hidden');
+    document.getElementById('stage3').classList.remove('hidden');
+    document.getElementById('falling-images').classList.add('hidden');
+}
 
-    // Button to trigger stage 3
-    bukaAku.addEventListener('click', () => {
-        stage2.style.display = 'none';
-        stage3.style.display = 'flex';
-    });
+// Simulate the 7-second loading time
+setTimeout(showStage2, 7000);
 
-    // Buttons to navigate in stage 3
-    let currentIndex = 1;
-    const totalLoveLetters = 3;
+// Falling images logic
+function createFallingImage(src) {
+    const img = document.createElement('img');
+    img.src = src;
+    img.classList.add('falling-image');
+    img.style.left = Math.random() * 100 + 'vw';
+    img.style.animationDuration = 5 + Math.random() * 5 + 's';
+    document.getElementById('falling-images').appendChild(img);
 
-    function updateLoveLetter(index) {
-        loveLetter.src = `https://raw.githubusercontent.com/noy2high/comit/main/images/Love%20Letter%20(${index}).png`;
-        next.style.display = (index === totalLoveLetters) ? 'none' : 'block';
-        previous.style.display = (index === 1) ? 'none' : 'block';
-    }
+    img.onload = () => {
+        setTimeout(() => {
+            img.remove();
+            createFallingImage(src); // Create a new one after the previous one is removed
+        }, parseFloat(img.style.animationDuration) * 1000);
+    };
+}
 
-    next.addEventListener('click', () => {
-        if (currentIndex < totalLoveLetters) {
-            currentIndex++;
-            updateLoveLetter(currentIndex);
-        }
-    });
+const imagePaths = Array.from({ length: 30 }, (_, i) => `images/Vintage Effect Polaroid (${i + 1}).png`);
 
-    previous.addEventListener('click', () => {
-        if (currentIndex > 1) {
-            currentIndex--;
-            updateLoveLetter(currentIndex);
-        }
-    });
+imagePaths.forEach(src => createFallingImage(src));
 
-    close.addEventListener('click', () => {
-        stage3.style.display = 'none';
-        stage2.style.display = 'flex';
-    });
+// Love letter logic (same as before)
+let currentLetter = 1;
 
-    // Function to start falling images
-    function startFallingImages() {
-        function createFallingImage() {
-            const img = document.createElement('img');
-            const randomIndex = Math.floor(Math.random() * 30) + 1;
-            img.src = `https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(${randomIndex}).png`;
-            img.style.position = 'absolute';
-            img.style.width = '60px'; // Adjust size if needed
-            img.style.height = '60px'; // Adjust size if needed
-            img.style.left = `${Math.random() * 100}%`;
-            img.style.top = `-${Math.random() * 100}px`;
-            fallingImagesContainer.appendChild(img);
+function nextLetter() {
+    currentLetter++;
+    updateLetter();
+}
 
-            setTimeout(() => {
-                img.style.top = '100%';
-            }, 0);
+function prevLetter() {
+    currentLetter--;
+    updateLetter();
+}
 
-            setTimeout(() => {
-                fallingImagesContainer.removeChild(img);
-            }, 4000);
-        }
+function updateLetter() {
+    document.getElementById('love-letter').src = `images/Love Letter (${currentLetter}).png`;
+    document.getElementById('prev').classList.toggle('hidden', currentLetter === 1);
+    document.getElementById('next').classList.toggle('hidden', currentLetter === 3);
+}
 
-        setInterval(createFallingImage, 1000); // Adjust the interval for speed
-    }
-
-    startFallingImages();
-});
+function closeStage3() {
+    document.getElementById('stage3').classList.add('hidden');
+    showStage2();
+}
