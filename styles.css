@@ -1,36 +1,34 @@
-/* Background layers: color, image, and black overlay */
-body {
-    background-color: #269144; /* Bottom layer */
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), /* Top overlay layer */
-        url('images/background.png'); /* Middle image layer */
-    background-blend-mode: normal;
-    background-size: cover;
-    background-position: center;
+body, html {
     margin: 0;
-    height: 100vh;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    background-color: #269144;
+    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png'), 
+                      linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+    background-size: cover, cover;
+    background-position: center, center;
+    position: relative;
 }
 
-/* Loader styles */
+/* Stage 1: Loading Animation */
 .loader {
     width: 50px;
     aspect-ratio: 1;
     color: #5efc58;
     background:
-        radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
-        radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-        linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
-        linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+      radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+      radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+      linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+      linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
     background-size: 50% 50%;
     background-repeat: no-repeat;
     position: relative;
-    animation: l3 1s infinite;
 }
-
 .loader:after {
     content: "";
     position: absolute;
@@ -39,23 +37,54 @@ body {
     opacity: 0.4;
     animation: l3 1s infinite;
 }
-
-/* Animation for the loader */
 @keyframes l3 {
-    to {
-        transform: scale(1.8);
-        opacity: 0;
-    }
+    to {transform: scale(1.8); opacity: 0;}
 }
 
-/* Overlay container for centering the loader */
-.overlay {
+/* Stage 2: Orphic Image, Buka Aku Button, Falling Images */
+.hidden {
+    display: none;
+}
+
+#stage2 {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#orphic {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+#buka-aku {
+    width: 50%;
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+.falling-images img {
+    position: absolute;
+    width: 15%;
+    opacity: 0.8;
+    animation: fall 4s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -100px;
+        left: calc(100% * var(--x-position));
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 100vh;
+        transform: rotate(360deg);
+    }
 }
