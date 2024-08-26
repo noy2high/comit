@@ -7,19 +7,27 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Loading Screen -->
+    <!-- Stage 1: Loading Animation -->
     <div id="loader" class="loader"></div>
-
-    <!-- Main Content -->
-    <div id="content" style="display: none;">
-        <!-- Background Image -->
-        <div id="background">
-            <div id="falling-images"></div>
-            <!-- Orphic Image -->
-            <img id="orphic-image" src="https://raw.githubusercontent.com/noy2high/comit/main/images/ORPHIC.png" alt="Orphic" />
-            <!-- Clickable Image -->
-            <img id="clickable-image" src="https://raw.githubusercontent.com/noy2high/comit/main/images/pencet%20aku.png" alt="Click Me" />
-        </div>
+    
+    <!-- Stage 2: Main Content with Background and Falling Images -->
+    <div id="main-content">
+        <!-- Orphic Image -->
+        <img id="orphic-image" src="https://raw.githubusercontent.com/noy2high/comit/main/images/ORPHIC.png" alt="Orphic" />
+        
+        <!-- Falling Images Container -->
+        <div id="falling-images"></div>
+        
+        <!-- Button Image -->
+        <img id="button-image" src="https://raw.githubusercontent.com/noy2high/comit/main/images/pencet%20aku.png" alt="Button" />
+    </div>
+    
+    <!-- Stage 3: Center Image and Navigation -->
+    <div id="stage3" class="hidden">
+        <img id="center-image" src="" alt="Center Image" />
+        <img id="next-button" src="https://raw.githubusercontent.com/noy2high/comit/main/images/right.png" alt="Next" />
+        <img id="prev-button" src="https://raw.githubusercontent.com/noy2high/comit/main/images/left.png" alt="Previous" />
+        <img id="close-button" src="https://raw.githubusercontent.com/noy2high/comit/main/images/X.png" alt="Close" />
     </div>
 
     <script src="script.js"></script>
