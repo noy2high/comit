@@ -1,59 +1,65 @@
-// Stage control
-function showStage2() {
-    document.getElementById('loading-screen').classList.add('hidden');
-    document.getElementById('stage2').classList.remove('hidden');
-}
+document.addEventListener('DOMContentLoaded', function () {
+    // Stage 1: Loading Screen
+    setTimeout(() => {
+        document.getElementById('loading-screen').classList.add('hidden');
+        document.getElementById('stage-2').classList.remove('hidden');
+    }, 7000); // 7 seconds delay
 
-function showStage3() {
-    document.getElementById('stage2').classList.add('hidden');
-    document.getElementById('stage3').classList.remove('hidden');
-    document.getElementById('falling-images').classList.add('hidden');
-}
+    // Stage 2: Falling Images and Buka Aku Button
+    const imagePaths = Array.from({ length: 30 }, (_, i) => `images/Vintage Effect Polaroid (${i + 1}).png`);
 
-// Simulate the 7-second loading time
-setTimeout(showStage2, 7000);
+    function createFallingImage() {
+        const img = document.createElement('img');
+        img.src = imagePaths[Math.floor(Math.random() * imagePaths.length)];
+        img.className = 'falling-image';
+        img.style.left = Math.random() * 100 + 'vw';
+        img.style.animationDuration = Math.random() * 5 + 4 + 's'; // random speed between 4-9 seconds
+        document.body.appendChild(img);
 
-// Falling images logic
-function createFallingImage(src) {
-    const img = document.createElement('img');
-    img.src = src;
-    img.classList.add('falling-image');
-    img.style.left = Math.random() * 100 + 'vw';
-    img.style.animationDuration = 5 + Math.random() * 5 + 's';
-    document.getElementById('falling-images').appendChild(img);
+        img.addEventListener('animationend', () => {
+            img.remove(); // Remove the image after it falls off the screen
+        });
+    }
 
-    img.onload = () => {
-        setTimeout(() => {
-            img.remove();
-            createFallingImage(src); // Create a new one after the previous one is removed
-        }, parseFloat(img.style.animationDuration) * 1000);
-    };
-}
+    setInterval(createFallingImage, 4000); // 1 image per 4 seconds
 
-const imagePaths = Array.from({ length: 30 }, (_, i) => `images/Vintage Effect Polaroid (${i + 1}).png`);
+    document.getElementById('buka-aku').addEventListener('click', function () {
+        document.getElementById('stage-2').classList.add('hidden');
+        document.getElementById('stage-3').classList.remove('hidden');
+    });
 
-imagePaths.forEach(src => createFallingImage(src));
+    // Stage 3: Love Letter Navigation
+    const loveLetterImages = [
+        'images/Love Letter (1).png',
+        'images/Love Letter (2).png',
+        'images/Love Letter (3).png'
+    ];
+    let currentIndex = 0;
 
-// Love letter logic (same as before)
-let currentLetter = 1;
+    function updateLoveLetter() {
+        document.getElementById('love-letter').src = loveLetterImages[currentIndex];
+        document.getElementById('prev-image').classList.toggle('hidden', currentIndex === 0);
+        document.getElementById('next-image').classList.toggle('hidden', currentIndex === loveLetterImages.length - 1);
+    }
 
-function nextLetter() {
-    currentLetter++;
-    updateLetter();
-}
+    document.getElementById('next-image').addEventListener('click', function () {
+        if (currentIndex < loveLetterImages.length - 1) {
+            currentIndex++;
+            updateLoveLetter();
+        }
+    });
 
-function prevLetter() {
-    currentLetter--;
-    updateLetter();
-}
+    document.getElementById('prev-image').addEventListener('click', function () {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateLoveLetter();
+        }
+    });
 
-function updateLetter() {
-    document.getElementById('love-letter').src = `images/Love Letter (${currentLetter}).png`;
-    document.getElementById('prev').classList.toggle('hidden', currentLetter === 1);
-    document.getElementById('next').classList.toggle('hidden', currentLetter === 3);
-}
+    document.getElementById('close-button').addEventListener('click', function () {
+        document.getElementById('stage-3').classList.add('hidden');
+        document.getElementById('stage-2').classList.remove('hidden');
+    });
 
-function closeStage3() {
-    document.getElementById('stage3').classList.add('hidden');
-    showStage2();
-}
+    updateLoveLetter(); // Initialize the first love letter
+});
