@@ -1,35 +1,40 @@
-body {
+body, html {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    background-color: #00bfae; /* Tosca color */
+    background: #269144 url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') center/cover no-repeat;
+    position: relative;
 }
 
-#loader {
-    position: fixed;
+body::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75); /* Black overlay with 75% opacity */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1;
 }
 
 .loader {
     width: 50px;
     aspect-ratio: 1;
-    color: #dc1818;
+    color: #5efc58;
     background:
         radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
         radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-        linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
-        linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+        linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left,
+        linear-gradient(to bottom right, currentColor 42%,#0000 43%) bottom right;
     background-size: 50% 50%;
     background-repeat: no-repeat;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
 .loader:after {
@@ -48,16 +53,32 @@ body {
     }
 }
 
-#content {
-    position: absolute;
-    top: 20%; /* Adjust top position to ensure it's visible */
-    left: 50%;
-    transform: translate(-50%, 0);
-    text-align: center;
-    z-index: 1;
+.content {
+    display: none;
+    z-index: 3;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-#content img {
+.title-image {
+    display: block;
+    margin: 0 auto;
     max-width: 80%;
-    height: auto;
+    max-height: 15%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pencet-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
 }
