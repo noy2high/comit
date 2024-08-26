@@ -3,31 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Website</title>
+    <title>Special Birthday Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Stage 1: Loading Screen -->
-    <div id="loading-screen">
-        <div class="loader"></div>
-    </div>
+    <div id="loading-screen" class="loader"></div>
 
-    <!-- Stage 2: Orphic and Buka Aku -->
-    <div id="stage2" class="hidden">
+    <!-- Stage 2: Orphic Image with Falling Images and Buka Aku Button -->
+    <div id="stage-2" class="hidden">
         <img src="images/ORPHIC.png" alt="Orphic" id="orphic-image">
-        <img src="images/pencet%20aku.png" alt="Buka Aku" id="buka-aku" onclick="showStage3()">
+        <img src="images/pencet%20aku.png" alt="Buka Aku" id="buka-aku">
     </div>
 
-    <!-- Stage 3: Love Letter -->
-    <div id="stage3" class="hidden">
+    <!-- Stage 3: Love Letter Images with Navigation -->
+    <div id="stage-3" class="hidden">
         <img src="images/Love%20Letter%20(1).png" alt="Love Letter 1" id="love-letter">
-        <img src="images/left.png" alt="Previous" id="prev" class="hidden" onclick="prevLetter()">
-        <img src="images/right.png" alt="Next" id="next" onclick="nextLetter()">
-        <img src="images/x.png" alt="Close" id="close" onclick="closeStage3()">
+        <img src="images/right.png" alt="Next" id="next-image">
+        <img src="images/left.png" alt="Previous" id="prev-image" class="hidden">
+        <img src="images/close.png" alt="Close" id="close-button">
     </div>
-
-    <!-- Falling Images -->
-    <div id="falling-images"></div>
 
     <script src="script.js"></script>
 </body>
