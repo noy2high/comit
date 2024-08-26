@@ -3,33 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Website</title>
+    <title>Happy Birthday</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Background Layers -->
-    <div id="background-color"></div>
-    <div id="background-image"></div>
-    <div id="black-overlay"></div>
-
     <!-- Loading Screen -->
-    <div class="loader"></div>
+    <div id="loader" class="loader"></div>
 
-    <!-- ORPHIC Image -->
-    <img src="images/ORPHIC.png" alt="Orphic" class="orphic-image">
-
-    <!-- Falling Images Container -->
-    <div id="falling-images-container"></div>
-
-    <!-- Pencet Aku Button -->
-    <img src="images/pencet%20aku.png" alt="Pencet Aku" class="pencet-aku">
-
-    <!-- Stage 3 (Love Letter Images and Navigation) -->
-    <div id="stage-3-content">
-        <img id="love-letter" src="images/Love%20Letter%20(1).png" alt="Love Letter">
-        <img id="next-button" src="images/right.png" alt="Next">
-        <img id="prev-button" src="images/left.png" alt="Previous">
-        <img id="close-button" src="images/close.png" alt="Close">
+    <!-- Main Content -->
+    <div id="content" style="display: none;">
+        <!-- Background Image -->
+        <div id="background">
+            <div id="falling-images"></div>
+            <!-- Orphic Image -->
+            <img id="orphic-image" src="https://raw.githubusercontent.com/noy2high/comit/main/images/ORPHIC.png" alt="Orphic" />
+            <!-- Clickable Image -->
+            <img id="clickable-image" src="https://raw.githubusercontent.com/noy2high/comit/main/images/pencet%20aku.png" alt="Click Me" />
+        </div>
     </div>
 
     <script src="script.js"></script>
