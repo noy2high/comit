@@ -1,124 +1,58 @@
-/* General Styles */
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: #269144 url('images/background.png') no-repeat center center fixed;
+/* Background layers: color, image, and black overlay */
+body {
+    background-color: #269144;
+    background-image: url('images/background.png'), linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+    background-blend-mode: overlay;
     background-size: cover;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-/* Stage 1: Loading Screen */
+/* Loader styles */
 .loader {
     width: 50px;
     aspect-ratio: 1;
-    color:#5efc58;
+    color: #5efc58;
     background:
         radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
         radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-        linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left ,
-        linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;
+        linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+        linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
     background-size: 50% 50%;
     background-repeat: no-repeat;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: fadeIn 7s forwards;
-}
-
-/* Stage 2: Orphic Image with Falling Images */
-#stage-2 {
     position: relative;
-    text-align: center;
-    padding-top: 20px;
+    animation: l3 1s infinite;
 }
 
-#orphic-image {
-    width: 80%;
-    margin: 0 auto;
-    display: block;
-}
-
-#buka-aku {
-    width: 60%;
-    margin: 20px auto;
-    display: block;
-}
-
-.falling-image {
+.loader:after {
+    content: "";
     position: absolute;
-    width: 50px;
-    animation: fall 10s infinite linear;
+    inset: 0;
+    background: inherit;
+    opacity: 0.4;
+    animation: l3 1s infinite;
 }
 
-/* Stage 3: Love Letter with Navigation */
-#stage-3 {
-    position: relative;
-    text-align: center;
-    padding-top: 20px;
-    backdrop-filter: blur(10px);
+/* Animation for the loader */
+@keyframes l3 {
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
 }
 
-#love-letter {
-    width: 80%;
-    margin: 0 auto;
-    display: block;
-}
-
-#next-image, #prev-image {
+/* Overlay container for centering the loader */
+.overlay {
     position: absolute;
-    width: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-#next-image {
-    right: 5%;
-}
-
-#prev-image {
-    left: 5%;
-}
-
-#close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 5%;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
-@keyframes fall {
-    0% { top: -100px; opacity: 0; }
-    10% { opacity: 1; }
-    100% { top: 100vh; opacity: 0; }
-}
-
-/* Hide elements */
-.hidden {
-    display: none;
-}
-
-/* Mobile Styles */
-@media only screen and (max-width: 600px) {
-    #orphic-image, #love-letter {
-        width: 90%;
-    }
-
-    #buka-aku {
-        width: 70%;
-    }
-
-    .falling-image {
-        width: 40px;
-    }
-
-    #next-image, #prev-image {
-        width: 15%;
-    }
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
