@@ -1,9 +1,12 @@
 /* Background layers: color, image, and black overlay */
 body {
-    background-color: #269144;
-    background-image: url('images/background.png'), linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
-    background-blend-mode: overlay;
+    background-color: #269144; /* Bottom layer */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), /* Top overlay layer */
+        url('images/background.png'); /* Middle image layer */
+    background-blend-mode: normal;
     background-size: cover;
+    background-position: center;
     margin: 0;
     height: 100vh;
     display: flex;
