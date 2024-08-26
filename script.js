@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const img = document.createElement('img');
         img.src = images[Math.floor(Math.random() * images.length)];
         img.classList.add('falling-image');
+        img.style.left = `${Math.random() * 100}%`; // Random horizontal position
         fallingImagesContainer.appendChild(img);
         setTimeout(() => img.remove(), 10000); // Remove image after 10 seconds
     };
