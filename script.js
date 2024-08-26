@@ -56,26 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = document.createElement('img');
             const randomIndex = Math.floor(Math.random() * 30) + 1;
             img.src = `https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(${randomIndex}).png`;
+            img.style.position = 'absolute';
+            img.style.width = '60px'; // Adjust size if needed
+            img.style.height = '60px'; // Adjust size if needed
             img.style.left = `${Math.random() * 100}%`;
             img.style.top = `-${Math.random() * 100}px`;
             fallingImagesContainer.appendChild(img);
 
             setTimeout(() => {
                 img.style.top = '100%';
-            }, 100);
+            }, 0);
 
             setTimeout(() => {
                 fallingImagesContainer.removeChild(img);
-            }, 5000);
+            }, 4000);
         }
 
-        // Clear previous images
-        fallingImagesContainer.innerHTML = '';
-
-        // Create falling images at 1 per second
-        setInterval(createFallingImage, 4000);
+        setInterval(createFallingImage, 1000); // Adjust the interval for speed
     }
 
-    // Initialize falling images
     startFallingImages();
 });
