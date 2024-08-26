@@ -1,16 +1,28 @@
-/* General styles */
-body, html {
+body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    height: 100%;
     background-color: #269144;
+    background-image: url('images/background.png'), linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
 }
 
-/* Loading animation */
+.hidden {
+    display: none;
+}
+
+#loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .loader {
     width: 50px;
-    height: 50px;
+    aspect-ratio: 1;
     color: #5efc58;
     background:
         radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
@@ -19,11 +31,7 @@ body, html {
         linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
     background-size: 50% 50%;
     background-repeat: no-repeat;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
+    position: relative;
 }
 
 .loader:after {
@@ -36,92 +44,85 @@ body, html {
 }
 
 @keyframes l3 {
-    to { transform: scale(1.8); opacity: 0; }
-}
-
-/* Stage 2 */
-#stage2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
 }
 
 #orphic-image {
-    position: absolute;
-    top: 10%;
-    max-width: 80%;
-    max-height: 20%;
-    z-index: 2;
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10vh;
 }
 
 #buka-aku {
-    position: absolute;
-    max-width: 50%;
-    max-height: 15%;
-    z-index: 2;
+    display: block;
+    margin: 30px auto;
+    cursor: pointer;
 }
 
-#falling-images {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-/* Stage 3 */
 #stage3 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: 2;
+    align-items: center;
+    height: 100vh;
+    backdrop-filter: blur(10px);
 }
 
 #love-letter {
     max-width: 80%;
-    max-height: 80%;
+    margin-bottom: 20px;
 }
 
-#next, #previous, #close {
+#prev,
+#next {
     width: 50px;
-    height: 50px;
     cursor: pointer;
+}
+
+#prev {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
 }
 
 #next {
     position: absolute;
-    bottom: 20px;
     right: 20px;
-}
-
-#previous {
-    position: absolute;
     bottom: 20px;
-    left: 20px;
 }
 
 #close {
     position: absolute;
     top: 20px;
     right: 20px;
+    width: 40px;
+    cursor: pointer;
 }
 
-.hidden {
-    display: none;
+/* Falling Images */
+#falling-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.falling-image {
+    position: absolute;
+    animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
 }
