@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         loader.style.display = 'none';
         stage2.style.display = 'flex';
-        startFallingImages();
     }, 7000);
 
     // Button to trigger stage 3
@@ -70,6 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 5000);
         }
 
+        // Clear previous images
+        fallingImagesContainer.innerHTML = '';
+
+        // Create falling images at 1 per second
         setInterval(createFallingImage, 4000);
     }
+
+    // Initialize falling images
+    startFallingImages();
 });
