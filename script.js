@@ -1,57 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
-    const mainContent = document.getElementById('main-content');
+    const stage2 = document.getElementById('stage2');
     const stage3 = document.getElementById('stage3');
-    const buttonImage = document.getElementById('button-image');
-    const centerImage = document.getElementById('center-image');
+    const bukaAku = document.getElementById('buka-aku');
+    const loveLetter = document.getElementById('love-letter');
+    const next = document.getElementById('next');
+    const previous = document.getElementById('previous');
+    const close = document.getElementById('close');
     const fallingImagesContainer = document.getElementById('falling-images');
-    const images = Array.from({ length: 30 }, (_, i) => `https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(${i + 1}).png`);
 
-    // Handle the transition from loading screen to main content
+    // Show stage 2 after 7 seconds
     setTimeout(() => {
         loader.style.display = 'none';
-        mainContent.style.display = 'block';
-    }, 7000); // 7 seconds
+        stage2.style.display = 'flex';
+        startFallingImages();
+    }, 7000);
 
-    // Handle button click to transition to Stage 3
-    buttonImage.addEventListener('click', () => {
-        mainContent.style.display = 'none';
+    // Button to trigger stage 3
+    bukaAku.addEventListener('click', () => {
+        stage2.style.display = 'none';
         stage3.style.display = 'flex';
     });
 
-    // Handle next, previous, and close actions in Stage 3
-    const loveLetterImages = [
-        'https://raw.githubusercontent.com/noy2high/comit/main/images/Love%20Letter%20(1).png',
-        'https://raw.githubusercontent.com/noy2high/comit/main/images/Love%20Letter%20(2).png',
-        'https://raw.githubusercontent.com/noy2high/comit/main/images/Love%20Letter%20(3).png'
-    ];
+    // Buttons to navigate in stage 3
+    let currentIndex = 1;
+    const totalLoveLetters = 3;
 
-    let currentIndex = 0;
+    function updateLoveLetter(index) {
+        loveLetter.src = `https://raw.githubusercontent.com/noy2high/comit/main/images/Love%20Letter%20(${index}).png`;
+        next.style.display = (index === totalLoveLetters) ? 'none' : 'block';
+        previous.style.display = (index === 1) ? 'none' : 'block';
+    }
 
-    document.getElementById('next-button').addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % loveLetterImages.length;
-        centerImage.src = loveLetterImages[currentIndex];
+    next.addEventListener('click', () => {
+        if (currentIndex < totalLoveLetters) {
+            currentIndex++;
+            updateLoveLetter(currentIndex);
+        }
     });
 
-    document.getElementById('prev-button').addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + loveLetterImages.length) % loveLetterImages.length;
-        centerImage.src = loveLetterImages[currentIndex];
+    previous.addEventListener('click', () => {
+        if (currentIndex > 1) {
+            currentIndex--;
+            updateLoveLetter(currentIndex);
+        }
     });
 
-    document.getElementById('close-button').addEventListener('click', () => {
+    close.addEventListener('click', () => {
         stage3.style.display = 'none';
-        mainContent.style.display = 'block';
+        stage2.style.display = 'flex';
     });
 
-    // Handle falling images
-    const createFallingImage = () => {
-        const img = document.createElement('img');
-        img.src = images[Math.floor(Math.random() * images.length)];
-        img.classList.add('falling-image');
-        img.style.left = `${Math.random() * 100}%`; // Random horizontal position
-        fallingImagesContainer.appendChild(img);
-        setTimeout(() => img.remove(), 10000); // Remove image after 10 seconds
-    };
+    // Function to start falling images
+    function startFallingImages() {
+        function createFallingImage() {
+            const img = document.createElement('img');
+            const randomIndex = Math.floor(Math.random() * 30) + 1;
+            img.src = `https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(${randomIndex}).png`;
+            img.style.left = `${Math.random() * 100}%`;
+            img.style.top = `-${Math.random() * 100}px`;
+            fallingImagesContainer.appendChild(img);
 
-    setInterval(createFallingImage, 4000); // Create a new falling image every 4 seconds
+            setTimeout(() => {
+                img.style.top = '100%';
+            }, 100);
+
+            setTimeout(() => {
+                fallingImagesContainer.removeChild(img);
+            }, 5000);
+        }
+
+        setInterval(createFallingImage, 4000);
+    }
 });
