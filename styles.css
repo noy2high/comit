@@ -1,34 +1,38 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    background-color: #269144;
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    position: relative;
     overflow: hidden;
+}
+
+.loader-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #269144;
-    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png'), 
-                      linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
-    background-size: cover, cover;
-    background-position: center, center;
-    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
-/* Stage 1: Loading Animation */
 .loader {
     width: 50px;
-    aspect-ratio: 1;
-    color: #5efc58;
-    background:
-      radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
-      radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-      linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
-      linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+    height: 50px;
+    background: radial-gradient(circle at 60% 65%, #5efc58 62%, transparent 65%) top left,
+                radial-gradient(circle at 40% 65%, #5efc58 62%, transparent 65%) top right,
+                linear-gradient(to bottom left, #5efc58 42%, transparent 43%) bottom left,
+                linear-gradient(to bottom right, #5efc58 42%, transparent 43%) bottom right;
     background-size: 50% 50%;
     background-repeat: no-repeat;
     position: relative;
 }
+
 .loader:after {
     content: "";
     position: absolute;
@@ -37,54 +41,55 @@ body, html {
     opacity: 0.4;
     animation: l3 1s infinite;
 }
+
 @keyframes l3 {
-    to {transform: scale(1.8); opacity: 0;}
+    to { transform: scale(1.8); opacity: 0; }
 }
 
-/* Stage 2: Orphic Image, Buka Aku Button, Falling Images */
 .hidden {
     display: none;
 }
 
-#stage2 {
+#stage-2 {
     position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
-#orphic {
+.orphic-image {
     width: 80%;
     max-width: 600px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-#buka-aku {
-    width: 50%;
-    max-width: 300px;
-    margin-top: 20px;
+.pencet-aku {
+    width: 60%;
+    max-width: 400px;
+    cursor: pointer;
+    margin-bottom: 20px;
 }
 
-.falling-images img {
+#falling-images-container {
     position: absolute;
-    width: 15%;
-    opacity: 0.8;
-    animation: fall 4s linear infinite;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.falling-image {
+    position: absolute;
+    width: 80px;
+    animation: fall linear infinite;
 }
 
 @keyframes fall {
-    0% {
-        top: -100px;
-        left: calc(100% * var(--x-position));
-        transform: rotate(0deg);
-    }
-    100% {
-        top: 100vh;
-        transform: rotate(360deg);
-    }
+    from { top: -100px; opacity: 1; }
+    to { top: 100%; opacity: 0; }
 }
