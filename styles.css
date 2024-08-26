@@ -1,42 +1,20 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #269144 url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') center/cover no-repeat;
-    position: relative;
-}
-
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: 1;
-}
-
+/* Loader CSS */
 .loader {
     width: 50px;
     aspect-ratio: 1;
-    color: #5efc58;
+    color:#5efc58;
     background:
         radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
         radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
         linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left,
-        linear-gradient(to bottom right, currentColor 42%,#0000 43%) bottom right;
+        linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;
     background-size: 50% 50%;
     background-repeat: no-repeat;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
 }
-
 .loader:after {
     content: "";
     position: absolute;
@@ -45,40 +23,49 @@ body::before {
     opacity: 0.4;
     animation: l3 1s infinite;
 }
-
 @keyframes l3 {
-    to {
-        transform: scale(1.8);
-        opacity: 0;
-    }
+    to {transform: scale(1.8); opacity: 0;}
 }
 
-.content {
-    display: none;
-    z-index: 3;
-    position: relative;
+/* Background overlay */
+#background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* 75% opacity */
+    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
-.title-image {
-    display: block;
-    margin: 0 auto;
-    max-width: 80%;
-    max-height: 15%;
+/* Orphic image */
+#orphic-image {
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
+    max-width: 90%;
+    width: 300px; /* Adjust size for mobile visibility */
 }
 
-.pencet-image {
-    display: block;
-    margin: 0 auto;
-    max-width: 30%;
+/* Pencet Aku image */
+#pencet-aku-image {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    cursor: pointer;
+    max-width: 90%;
+    width: 200px;
+}
+
+/* Content */
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
