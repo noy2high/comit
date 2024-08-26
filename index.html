@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Birthday Website</title>
+    <title>Stage 2</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Stage 1: Loading Animation -->
-    <div id="stage1">
+    <!-- Stage 1: Loading Screen -->
+    <div id="loading-screen" class="loader-container">
         <div class="loader"></div>
     </div>
 
-    <!-- Stage 2: Orphic Image, Buka Aku Button, and Falling Images -->
-    <div id="stage2" class="hidden">
-        <img id="orphic" src="https://raw.githubusercontent.com/noy2high/comit/main/images/ORPHIC.png" alt="Orphic">
-        <img id="buka-aku" src="https://raw.githubusercontent.com/noy2high/comit/main/images/pencet%20aku.png" alt="Buka Aku">
-        <div class="falling-images"></div>
+    <!-- Stage 2: Content -->
+    <div id="stage-2" class="hidden">
+        <img src="images/ORPHIC.png" alt="Orphic" class="orphic-image">
+        <img src="images/pencet%20aku.png" alt="Pencet Aku" class="pencet-aku">
+        <div id="falling-images-container"></div>
     </div>
 
     <script src="script.js"></script>
