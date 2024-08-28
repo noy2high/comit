@@ -8,6 +8,4 @@ window.onload = function() {
         document.getElementById('stage1').style.display = 'none'; // Hide Stage 1
         document.getElementById('stage2').style.display = 'flex'; // Show Stage 2
     }, 7000); // 7 seconds delay
-
-    // Falling images logic (We'll address this after fixing the base problems)
 };
