@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stage Control</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Stage 1 and Stage 2</title>
 </head>
 <body>
     <!-- Stage 1: Loading Screen -->
-    <div id="loading-screen" class="loader-container">
+    <div id="loading-screen">
         <div class="loader"></div>
     </div>
 
-    <!-- Stage 2: Content (Initially Hidden) -->
-    <div id="stage-2" class="hidden">
-        <div class="dark-overlay"></div>
-        <
+    <!-- Stage 2 -->
+    <div id="stage-2" style="display: none;">
+        <img src="https://raw.githubusercontent.com/noy2high/comit/main/images/ORPHIC.png" alt="Orphic" class="orphic-image">
+        <img src="https://raw.githubusercontent.com/noy2high/comit/main/images/pencet%20aku.png" alt="Buka Aku" class="buka-aku-image">
+        <div id="falling-images-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
