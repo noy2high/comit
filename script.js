@@ -31,3 +31,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 6000); // Duration of fall + buffer
         }, 4000); // 1 image per 4 seconds
     }
+});
