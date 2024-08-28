@@ -26,4 +26,93 @@ body, html {
     z-index: 10; /* Ensure loading screen is on top */
 }
 
-.loader
+.loader {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle at 60% 65%, #5efc58 62%, transparent 65%) top left,
+                radial-gradient(circle at 40% 65%, #5efc58 62%, transparent 65%) top right,
+                linear-gradient(to bottom left, #5efc58 42%, transparent 43%) bottom left,
+                linear-gradient(to bottom right, #5efc58 42%, transparent 43%) bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.loader:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0.4;
+    animation: l3 1s infinite;
+}
+
+@keyframes l3 {
+    to { transform: scale(1.8); opacity: 0; }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Dark Overlay for Stage 2 */
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Black overlay */
+    z-index: -1; /* Below all other elements */
+}
+
+/* Stage 2 */
+#stage-2 {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5; /* Below loading screen */
+}
+
+.orphic-image {
+    width: 80%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.pencet-aku {
+    width: 60%;
+    max-width: 400px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#falling-images-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.falling-image {
+    position: absolute;
+    width: 50px; /* Smaller size */
+    height: 50px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -10%;
+    }
+    100% {
+        top: 110%;
+    }
+}
