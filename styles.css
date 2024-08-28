@@ -42,10 +42,10 @@ body {
   aspect-ratio: 1;
   color: #7eff5f;
   background:
-   radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
-   radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-   linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left,
-   linear-gradient(to bottom right, currentColor 42%,#0000 43%) bottom right;
+    radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+    radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+    linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+    linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
   background-size: 50% 50%;
   background-repeat: no-repeat;
   position: relative;
@@ -53,62 +53,64 @@ body {
   animation: l3 1s infinite;
 }
 
-#stage1 .loader:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: inherit;
-  opacity: 0.4;
-  animation: l3 1s infinite;
-}
-
 @keyframes l3 {
-  to { transform: scale(1.8); opacity: 0; }
+  to { transform: scale(1.8); opacity: 0 }
 }
 
 /* Stage 2 Styles */
 #stage2 {
-  display: none; /* Hidden initially, shown after Stage 1 */
+  display: none; /* Hidden initially */
   position: relative;
-  width: 100vw;
   height: 100vh;
+  width: 100vw;
 }
 
 #stage2 .background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center;
   background-size: cover;
   z-index: 1;
 }
 
 #stage2 .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.75); /* Black overlay with 75% opacity */
   z-index: 2;
 }
 
-#stage2 .orhpic-img {
+#stage2 .orpic-image {
   position: absolute;
-  top: 20px; /* Adjust as needed */
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%; /* Adjust size */
-  max-width: 600px;
+  width: 80%;
+  max-width: 400px;
   z-index: 3;
 }
 
-#stage2 .buka-aku-img {
+#stage2 .buka-aku {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40%; /* Adjust size */
-  max-width: 300px;
+  width: 40%;
+  max-width: 200px;
+  cursor: pointer;
   z-index: 4;
 }
 
+/* Falling Images Styles */
 .falling-image {
   position: absolute;
-  width: 50px; /* Adjust size */
+  width: 50px; /* Adjust as needed */
   height: auto;
   z-index: 5;
-  pointer-events: none; /* So images don’t interfere with clicks */
 }
