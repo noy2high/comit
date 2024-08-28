@@ -1,118 +1,64 @@
-/* General styling */
-body, html {
+body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #008080; /* Main color layer */
-    background-image: url('images/background.png'); /* Background image */
-    background-size: cover;
-    background-position: center;
+    overflow: hidden; /* Prevent scrolling */
+    background: #269144 url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') center center / cover no-repeat;
     position: relative;
 }
 
-/* Stage 1: Loading Screen */
-.loader-container {
+#loading-screen {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75); /* Black overlay */
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75); /* Black overlay */
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10; /* Ensure loading screen is on top */
 }
 
 .loader {
     width: 50px;
     height: 50px;
-    background: radial-gradient(circle at 60% 65%, #5efc58 62%, transparent 65%) top left,
-                radial-gradient(circle at 40% 65%, #5efc58 62%, transparent 65%) top right,
-                linear-gradient(to bottom left, #5efc58 42%, transparent 43%) bottom left,
-                linear-gradient(to bottom right, #5efc58 42%, transparent 43%) bottom right;
-    background-size: 50% 50%;
-    background-repeat: no-repeat;
-    position: relative;
+    background: #5efc58;
+    border-radius: 50%;
+    animation: loading-animation 1s infinite;
 }
 
-.loader:after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: inherit;
-    opacity: 0.4;
-    animation: l3 1s infinite;
+@keyframes loading-animation {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.5); }
 }
 
-@keyframes l3 {
-    to { transform: scale(1.8); opacity: 0; }
-}
-
-.hidden {
-    display: none;
-}
-
-/* Dark Overlay for Stage 2 */
-.dark-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75); /* Black overlay */
-    z-index: -1; /* Below all other elements */
-}
-
-/* Stage 2 */
 #stage-2 {
-    display: none; /* Hide by default */
-    flex-direction: column;
+    display: none; /* Hidden initially */
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5; /* Below loading screen */
-}
-
-.orphic-image {
-    width: 80%;
-    max-width: 600px;
-    margin-bottom: 20px;
-}
-
-.pencet-aku {
-    width: 60%;
-    max-width: 400px;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-#falling-images-container {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
 }
 
 .falling-image {
     position: absolute;
-    width: 50px; /* Smaller size */
-    height: 50px;
-    animation: fall linear infinite;
+    width: 50px; /* Smaller size for falling images */
 }
 
-@keyframes fall {
-    0% {
-        top: -10%;
-    }
-    100% {
-        top: 110%;
-    }
+.orphic-image {
+    position: absolute;
+    top: 20px; /* Adjust for placement */
+    width: 80%; /* Adjust size for mobile */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.buka-aku-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%; /* Adjust size for mobile */
 }
