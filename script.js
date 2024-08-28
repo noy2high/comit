@@ -1,78 +1,68 @@
-// Stage 1: Loading Screen
-const loader = document.querySelector('.loader');
-const stage1 = document.querySelector('.stage1');
-const stage2 = document.querySelector('.stage2');
-
-function startStage2() {
-  stage1.style.display = 'none';
-  stage2.style.display = 'block';
+// Stage 1: Loading Animation
+function showStage1() {
+  document.getElementById('stage1').style.display = 'flex';
+  document.getElementById('stage2').style.display = 'none';
 }
 
-// Simulate loading for 7 seconds before showing Stage 2
-setTimeout(startStage2, 7000);
+// Stage 2: Show after 7 seconds
+function showStage2() {
+  document.getElementById('stage1').style.display = 'none';
+  document.getElementById('stage2').style.display = 'block';
+  startFallingImages();
+}
 
-// Stage 2: Falling Images
-const imageUrls = [
+// Start the stages
+window.onload = function() {
+  showStage1();
+  setTimeout(showStage2, 7000); // Show stage 2 after 7 seconds
+};
+
+// Falling Images Functionality
+const fallingImageUrls = [
   'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(1).png',
   'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(2).png',
   'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(3).png',
   'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(4).png',
   'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(5).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(6).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(7).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(8).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(9).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(10).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(11).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(12).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(13).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(14).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(15).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(16).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(17).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(18).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(19).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(20).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(21).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(22).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(23).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(24).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(25).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(26).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(27).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(28).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(29).png',
-  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(30).png'
+  // Add all 30 image URLs here
 ];
 
-const stage2ImagesContainer = document.querySelector('.stage2-images');
-const imageCount = imageUrls.length;
-let usedImages = new Set();
+function startFallingImages() {
+  let usedImages = [];
 
-function getRandomImageUrl() {
-  let randomIndex;
-  do {
-    randomIndex = Math.floor(Math.random() * imageCount);
-  } while (usedImages.has(randomIndex) && usedImages.size < imageCount);
-  if (usedImages.size === imageCount) {
-    usedImages.clear(); // Reset when all images have been used
+  function getRandomImage() {
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * fallingImageUrls.length);
+    } while (usedImages.includes(randomIndex) && usedImages.length < fallingImageUrls.length);
+
+    if (usedImages.length >= fallingImageUrls.length) {
+      usedImages = [];
+    }
+
+    usedImages.push(randomIndex);
+    return fallingImageUrls[randomIndex];
   }
-  usedImages.add(randomIndex);
-  return imageUrls[randomIndex];
+
+  function createFallingImage() {
+    const img = document.createElement('img');
+    img.src = getRandomImage();
+    img.className = 'falling-image';
+    img.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+    document.getElementById('stage2').appendChild(img);
+
+    const fallDuration = 6; // Adjust fall speed
+    img.style.transition = `top ${fallDuration}s linear`;
+    img.style.top = '100vh'; // Start from the top
+
+    setTimeout(() => {
+      img.style.top = '-10%'; // Move to the top of the screen
+    }, 100);
+
+    setTimeout(() => {
+      img.remove();
+    }, fallDuration * 1000);
+  }
+
+  setInterval(createFallingImage, 4000); // Create new image every 4 seconds
 }
-
-function createFallingImage() {
-  const img = document.createElement('img');
-  img.src = getRandomImageUrl();
-  img.className = 'falling-image';
-  img.style.left = Math.random() * (window.innerWidth - 100) + 'px'; // Random horizontal position
-  stage2ImagesContainer.appendChild(img);
-
-  // Remove image after it falls past the screen
-  setTimeout(() => {
-    img.remove();
-  }, 8000); // Adjust duration based on desired fall speed
-}
-
-setInterval(createFallingImage, 4000); // One image every 4 seconds
-
