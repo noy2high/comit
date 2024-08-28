@@ -19,7 +19,6 @@ body {
     background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
     background-size: cover;
     background-position: center;
-    background-blend-mode: darken;
     z-index: 1;
 }
 
@@ -74,6 +73,9 @@ body {
 /* Buka Aku Image */
 .buka-aku-image {
     position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
     width: 60%;
     max-width: 300px; /* Adjust as needed */
     z-index: 3;
