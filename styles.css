@@ -39,4 +39,53 @@ body, html {
 }
 
 .loader:after {
-    conten
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0.4;
+    animation: l3 1s infinite;
+}
+
+@keyframes l3 {
+    to { transform: scale(1.8); opacity: 0; }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Stage 2 */
+#stage-2 {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5; /* Below loading screen */
+}
+
+.orphic-image {
+    width: 80%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.pencet-aku {
+    width: 60%;
+    max-width: 400px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#falling-images-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
