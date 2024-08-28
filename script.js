@@ -13,13 +13,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Falling Images Logic
     const images = [];
     for (let i = 1; i <= 30; i++) {
-        images.push(`images/Vintage%20Effect%20Polaroid%20(${i}).png`);
+        images.push(`images/VintageEffectPolaroid(${i}).png`);
     }
 
     function startFallingImages() {
         setInterval(() => {
             const imgElement = document.createElement('img');
-            imgElement.src = images[Math.floor(Math.random() * images.length)];
+            const randomImage = images[Math.floor(Math.random() * images.length)];
+            imgElement.src = randomImage;
             imgElement.classList.add('falling-image');
             imgElement.style.left = `${Math.random() * 100}%`;
             imgElement.style.animationDuration = `${4 + Math.random() * 2}s`; // Slower fall
