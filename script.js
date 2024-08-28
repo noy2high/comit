@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Stage 1: Loading screen delay
     setTimeout(() => {
-        loadingScreen.style.display = 'none'; // Hide Stage 1
+        loadingScreen.style.display = 'none'; // Hide Stage 1 after 7 seconds
         stage2.style.display = 'flex'; // Show Stage 2
         startFallingImages();
     }, 7000); // 7 seconds
