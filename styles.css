@@ -1,62 +1,76 @@
+/* General Styles */
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevent scrolling */
-    background-color: #269144; /* Main color */
-    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png'), linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)); /* Image and black overlay */
+    overflow: hidden;
+}
+
+/* Background layers for both stages */
+#stage1, #stage2 {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #008080; /* Main background color */
+    background-image: url('path/to/background.jpg'); /* Background image */
+    background-size: cover;
     background-position: center;
-    background-size: cover; /* Fix background scaling */
-    background-repeat: no-repeat;
-    position: relative;
 }
 
-#loading-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+#stage1::before, #stage2::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Black overlay */
+    z-index: 1;
 }
 
+/* Loader Animation */
 .loader {
-    width: 50px;
-    height: 50px;
-    background: #5efc58;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Heart shape */
-    animation: loading-animation 1s infinite;
+  width: 50px;
+  aspect-ratio: 1;
+  color: #7eff5f;
+  background:
+   radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+   radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+   linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+   linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 2; /* Ensures loader is above overlay */
+}
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0.4;
+  animation: l3 1s infinite;
+  z-index: 2; /* Ensures after pseudo-element is above overlay */
+}
+@keyframes l3 {
+  to {transform: scale(1.8); opacity: 0}
 }
 
-@keyframes loading-animation {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.5); }
+/* Stage 2 Content */
+#stage2 {
+    display: none; /* Hide Stage 2 initially */
+    z-index: 2; /* Ensures stage 2 is above the overlay */
 }
 
-#stage-2 {
-    display: none; /* Hidden initially */
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.75); /* Black overlay for Stage 2 */
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.falling-image {
-    position: absolute;
-    width: 50px; /* Smaller size for falling images */
-}
-
+/* Image Classes */
 .orphic-image {
     position: absolute;
-    top: 20px; /* Adjust for placement */
-    width: 80%; /* Adjust size for mobile */
+    top: 15%;
     left: 50%;
     transform: translateX(-50%);
+    width: 70%;
+    z-index: 2;
 }
 
 .buka-aku-image {
@@ -64,5 +78,20 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%; /* Adjust size for mobile */
+    width: 50%;
+    animation: pulse-animation 1.5s infinite; /* Pulse Animation */
+    z-index: 2;
+}
+
+/* Pulse Animation */
+@keyframes pulse-animation {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
