@@ -2,7 +2,11 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden; /* Prevent scrolling */
-    background: #269144 url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') center center / cover no-repeat;
+    background-color: #269144; /* Main color */
+    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png'), linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)); /* Image and black overlay */
+    background-position: center;
+    background-size: cover; /* Fix background scaling */
+    background-repeat: no-repeat;
     position: relative;
 }
 
@@ -12,7 +16,6 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.75); /* Black overlay */
     position: absolute;
     top: 0;
     left: 0;
@@ -22,7 +25,7 @@ body {
     width: 50px;
     height: 50px;
     background: #5efc58;
-    border-radius: 50%;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Heart shape */
     animation: loading-animation 1s infinite;
 }
 
@@ -37,6 +40,7 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
+    background: rgba(0, 0, 0, 0.75); /* Black overlay for Stage 2 */
     position: absolute;
     top: 0;
     left: 0;
