@@ -1,82 +1,78 @@
-/* General Styles */
-body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+// Stage 1: Loading Screen
+const loader = document.querySelector('.loader');
+const stage1 = document.querySelector('.stage1');
+const stage2 = document.querySelector('.stage2');
+
+function startStage2() {
+  stage1.style.display = 'none';
+  stage2.style.display = 'block';
 }
 
-/* Stage Container */
-.stage {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #269144; /* Main background color */
-    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
+// Simulate loading for 7 seconds before showing Stage 2
+setTimeout(startStage2, 7000);
+
+// Stage 2: Falling Images
+const imageUrls = [
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(1).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(2).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(3).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(4).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(5).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(6).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(7).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(8).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(9).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(10).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(11).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(12).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(13).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(14).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(15).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(16).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(17).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(18).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(19).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(20).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(21).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(22).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(23).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(24).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(25).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(26).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(27).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(28).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(29).png',
+  'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(30).png'
+];
+
+const stage2ImagesContainer = document.querySelector('.stage2-images');
+const imageCount = imageUrls.length;
+let usedImages = new Set();
+
+function getRandomImageUrl() {
+  let randomIndex;
+  do {
+    randomIndex = Math.floor(Math.random() * imageCount);
+  } while (usedImages.has(randomIndex) && usedImages.size < imageCount);
+  if (usedImages.size === imageCount) {
+    usedImages.clear(); // Reset when all images have been used
+  }
+  usedImages.add(randomIndex);
+  return imageUrls[randomIndex];
 }
 
-/* Black Overlay */
-.stage::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75); /* 75% opacity */
-    z-index: 2;
+function createFallingImage() {
+  const img = document.createElement('img');
+  img.src = getRandomImageUrl();
+  img.className = 'falling-image';
+  img.style.left = Math.random() * (window.innerWidth - 100) + 'px'; // Random horizontal position
+  stage2ImagesContainer.appendChild(img);
+
+  // Remove image after it falls past the screen
+  setTimeout(() => {
+    img.remove();
+  }, 8000); // Adjust duration based on desired fall speed
 }
 
-/* Loader Styles */
-.loader {
-    width: 50px;
-    height: 50px;
-    color: #7eff5f;
-    background: 
-        radial-gradient(circle at 60% 65%, currentColor 62%, transparent 65%) top left,
-        radial-gradient(circle at 40% 65%, currentColor 62%, transparent 65%) top right,
-        linear-gradient(to bottom left, currentColor 42%, transparent 43%) bottom left,
-        linear-gradient(to bottom right, currentColor 42%, transparent 43%) bottom right;
-    background-size: 50% 50%;
-    background-repeat: no-repeat;
-    position: relative;
-    z-index: 3;
-}
-.loader::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: inherit;
-    opacity: 0.4;
-    animation: l3 1s infinite;
-}
-@keyframes l3 {
-    to {transform: scale(1.8); opacity: 0;}
-}
+setInterval(createFallingImage, 4000); // One image every 4 seconds
 
-/* Orphic Image */
-.orphic {
-    position: absolute;
-    top: 10%;
-    width: 70%;
-    max-width: 600px; /* Adjust as needed */
-    z-index: 3;
-}
-
-/* Buka Aku Image */
-.buka-aku-image {
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%);
-    width: 60%;
-    max-width: 300px; /* Adjust as needed */
-    z-index: 3;
-}
