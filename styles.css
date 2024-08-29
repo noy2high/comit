@@ -7,7 +7,7 @@ body {
 }
 
 /* Background Layers */
-#stage1, #stage2 {
+.stage {
     position: absolute;
     top: 0;
     left: 0;
