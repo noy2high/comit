@@ -6,7 +6,7 @@ body {
     height: 100vh;
 }
 
-/* Background Layers */
+/* Stage Container Styles */
 .stage {
     position: absolute;
     top: 0;
@@ -16,6 +16,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column; /* Align items vertically in the center */
     background: 
         url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') center center / cover no-repeat,
         linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
@@ -53,15 +54,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%; /* Ensure full height for Stage 2 */
 }
 
-.orphic-image, .buka-aku {
-    width: 70%;
-    max-width: 300px;
+.orphic-image {
+    width: 80%; /* Larger size for better visibility on mobile */
+    max-width: 400px;
     margin-bottom: 20px;
 }
 
 .buka-aku {
+    width: 60%; /* Large enough for visibility */
+    max-width: 300px;
     animation: pulsing 2s infinite;
 }
 
@@ -74,6 +78,7 @@ body {
 .falling-images img {
     position: absolute;
     width: 70px;
+    top: -10%; /* Start above the screen */
     animation: fall linear infinite;
     pointer-events: none;
 }
