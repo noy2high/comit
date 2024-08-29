@@ -1,74 +1,78 @@
 /* General Styles */
 body {
-    margin: 0;
-    overflow: hidden;
-    background: #4caf50; /* Green background */
+  margin: 0;
+  overflow: hidden;
+  background: #4caf50; /* Green background */
 }
 
 /* Stage 1: Loading Animation */
 #stage1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to bottom, #4caf50, rgba(0, 0, 0, 0.75)), url('YOUR_IMAGE_URL') no-repeat center center;
-    background-size: cover;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #4caf50, rgba(0, 0, 0, 0.75)), url('YOUR_IMAGE_URL') no-repeat center center;
+  background-size: cover;
+  position: relative;
 }
 
 .loader {
-    width: 50px;
-    aspect-ratio: 1;
-    color: #7eff5f;
-    background: radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
-                radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-                linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
-                linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
-    background-size: 50% 50%;
-    background-repeat: no-repeat;
-    position: relative;
-    animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(1.8); opacity: 0; }
+  width: 10vw; /* Adjust width for mobile */
+  height: 10vw; /* Adjust height for mobile */
+  color: #7eff5f;
+  /* Your existing styles */
 }
 
 /* Stage 2: Images */
 .hidden {
-    display: none;
+  display: none;
 }
 
 #stage2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-    background: linear-gradient(to bottom, #4caf50, rgba(0, 0, 0, 0.75)), url('YOUR_IMAGE_URL') no-repeat center center;
-    background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background: linear-gradient(to bottom, #4caf50, rgba(0, 0, 0, 0.75)), url('YOUR_IMAGE_URL') no-repeat center center;
+  background-size: cover;
 }
 
 .orphic-image {
-    width: 80%;
-    margin-top: 10vh;
+  width: 80%; /* Adjust width for mobile */
+  margin-top: 5vh; /* Adjust margin for mobile */
 }
 
 .buka-aku {
-    width: 50%;
-    animation: pulsing 2s infinite;
+  width: 30%; /* Adjust width for mobile */
+  animation: pulsing 2s infinite;
 }
 
 /* Falling Images */
 .falling-images img {
-    position: absolute;
-    width: 50px;
-    animation: fall linear infinite;
+  position: absolute;
+  width: 10vw; /* Adjust width for mobile */
+  animation: fall linear infinite;
 }
 
-@keyframes fall {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(100vh); }
+/* Mobile Styles */
+@media only screen and (max-width: 600px) {
+  .loader {
+    width: 20vw; /* Adjust loader width for smaller screens */
+    height: 20vw; /* Adjust loader height for smaller screens */
+  }
+
+  .orphic-image {
+    width: 90%; /* Adjust Orphic image width for smaller screens */
+    margin-top: 3vh; /* Adjust margin for smaller screens */
+  }
+
+  .buka-aku {
+    width: 40%; /* Adjust Buka Aku image width for smaller screens */
+  }
+
+  .falling-images img {
+    width: 15vw; /* Adjust falling images width for smaller screens */
+  }
 }
