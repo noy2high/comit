@@ -10,8 +10,13 @@ document.addEventListener("DOMContentLoaded", function() {
 function startFallingImages() {
     const imageContainer = document.querySelector('.falling-images');
     const imageUrls = [
-        'YOUR_IMAGE_URL_1', 'YOUR_IMAGE_URL_2', 'YOUR_IMAGE_URL_3', 
-        // Add all 30 image URLs here
+        'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(1).png',
+        'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(2).png',
+        'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(3).png',
+        'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(4).png',
+        'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(5).png',
+        // Continue with all 30 URLs
+        'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(30).png'
     ];
 
     const usedImages = new Set(); // To ensure no repetition
