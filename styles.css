@@ -2,7 +2,7 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #4caf50; /* Green background */
+    background-color: #4caf50; /* Base green color */
     height: 100vh;
 }
 
@@ -16,9 +16,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('YOUR_BACKGROUND_IMAGE_URL') center center / cover no-repeat,
-                linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-                #4caf50;
+    background: 
+        url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') center center / cover no-repeat,
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+        #4caf50;
     z-index: 1;
 }
 
