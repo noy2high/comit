@@ -1,116 +1,74 @@
 /* General Styles */
 body {
-  margin: 0;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    overflow: hidden;
+    background: #4caf50; /* Green background */
 }
 
-/* Stage 1 Styles */
+/* Stage 1: Loading Animation */
 #stage1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background: #269144; /* Green background color */
-  position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #4caf50, rgba(0, 0, 0, 0.75)), url('YOUR_IMAGE_URL') no-repeat center center;
+    background-size: cover;
+    position: relative;
 }
 
-#stage1 .background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center;
-  background-size: cover;
-  z-index: 1;
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    color: #7eff5f;
+    background: radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+                radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+                linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+                linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    animation: pulse 1s infinite;
 }
 
-#stage1 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75); /* Black overlay with 75% opacity */
-  z-index: 2;
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.8); opacity: 0; }
 }
 
-#stage1 .loader {
-  width: 50px;
-  aspect-ratio: 1;
-  color: #7eff5f;
-  background:
-    radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
-    radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-    linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
-    linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
-  background-size: 50% 50%;
-  background-repeat: no-repeat;
-  position: relative;
-  z-index: 3;
-  animation: l3 1s infinite;
+/* Stage 2: Images */
+.hidden {
+    display: none;
 }
 
-@keyframes l3 {
-  to { transform: scale(1.8); opacity: 0 }
-}
-
-/* Stage 2 Styles */
 #stage2 {
-  display: none; /* Hidden initially */
-  position: relative;
-  height: 100vh;
-  width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(to bottom, #4caf50, rgba(0, 0, 0, 0.75)), url('YOUR_IMAGE_URL') no-repeat center center;
+    background-size: cover;
 }
 
-#stage2 .background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center;
-  background-size: cover;
-  z-index: 1;
+.orphic-image {
+    width: 80%;
+    margin-top: 10vh;
 }
 
-#stage2 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75); /* Black overlay with 75% opacity */
-  z-index: 2;
+.buka-aku {
+    width: 50%;
+    animation: pulsing 2s infinite;
 }
 
-#stage2 .orpic-image {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  max-width: 400px;
-  z-index: 3;
+/* Falling Images */
+.falling-images img {
+    position: absolute;
+    width: 50px;
+    animation: fall linear infinite;
 }
 
-#stage2 .buka-aku {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40%;
-  max-width: 200px;
-  cursor: pointer;
-  z-index: 4;
-}
-
-/* Falling Images Styles */
-.falling-image {
-  position: absolute;
-  width: 50px; /* Adjust as needed */
-  height: auto;
-  z-index: 5;
+@keyframes fall {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(100vh); }
 }
