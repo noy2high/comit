@@ -1,9 +1,13 @@
 /* General Styles */
 body {
     margin: 0;
+    padding: 0;
     overflow: hidden;
     background-color: #4caf50; /* Base green color */
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Stage Container Styles */
@@ -16,75 +20,70 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Align items vertically in the center */
-    background: 
-        url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') center center / cover no-repeat,
-        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-        #4caf50;
-    z-index: 1;
-}
-
-/* Stage 1: Loading Animation */
-.loader {
-    width: 50px;
-    aspect-ratio: 1;
-    color: #7eff5f;
-    background: radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
-                radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-                linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
-                linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
-    background-size: 50% 50%;
+    background-color: #4caf50;
+    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
+    background-size: cover;
     background-repeat: no-repeat;
-    position: relative;
-    animation: pulse 1s infinite;
+    background-blend-mode: overlay;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(1.8); opacity: 0; }
-}
-
-/* Stage 2: Images */
 .hidden {
     display: none;
 }
 
-#stage2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+/* Loading Animation */
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    color: #7eff5f;
+    background:
+        radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+        radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+        linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+        linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    animation: l3 1s infinite;
 }
 
-.orphic-image {
-    width: 80%; /* Larger size for better visibility on mobile */
-    max-width: 400px;
-    margin-bottom: 20px;
+.loader::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0.4;
+    animation: l3 1s infinite;
 }
 
-.buka-aku {
-    width: 60%; /* Large enough for visibility */
-    max-width: 300px;
-    animation: pulsing 2s infinite;
+@keyframes l3 {
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
 }
 
-@keyframes pulsing {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(1.1); opacity: 0.7; }
+/* Stage 2: Orphic and Pencet Aku Images */
+#orphic, #pencet-aku {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
 }
 
 /* Falling Images */
-.falling-images img {
+.falling-image {
     position: absolute;
-    width: 70px;
-    top: -10%; /* Start above the screen */
-    animation: fall linear infinite;
-    pointer-events: none;
-    z-index: 2; /* Ensure images are above the background */
+    width: 60px;
+    height: 80px;
+    animation: fall linear;
 }
 
 @keyframes fall {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100vh); }
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
 }
