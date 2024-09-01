@@ -54,7 +54,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Ensure full height for Stage 2 */
+    height: 100%;
 }
 
 .orphic-image {
@@ -81,6 +81,7 @@ body {
     top: -10%; /* Start above the screen */
     animation: fall linear infinite;
     pointer-events: none;
+    z-index: 2; /* Ensure images are above the background */
 }
 
 @keyframes fall {
