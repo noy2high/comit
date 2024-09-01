@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Ayesha's Birthday</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Stage 1: Loading Animation -->
@@ -12,12 +13,14 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Stage 2: Orphic Image and Falling Images -->
+    <!-- Stage 2: Orphic and Pencet Aku with Falling Images -->
     <div id="stage2" class="stage hidden">
-        <img src="https://raw.githubusercontent.com/noy2high/comit/main/images/ORPHIC.png" class="orphic-image" alt="Orphic">
-        <img src="https://raw.githubusercontent.com/noy2high/comit/main/images/pencet%20aku.png" class="buka-aku" alt="Buka Aku">
-        <div class="falling-images"></div>
+        <img id="orphic" src="https://raw.githubusercontent.com/noy2high/comit/main/images/ORPHIC.png" alt="Orphic Image">
+        <img id="pencet-aku" src="https://raw.githubusercontent.com/noy2high/comit/main/images/pencet%20aku.png" alt="Pencet Aku Image">
     </div>
+
+    <!-- Falling Images Container -->
+    <div id="falling-images-container" class="stage hidden"></div>
 
     <script src="script.js"></script>
 </body>
