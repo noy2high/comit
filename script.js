@@ -19,7 +19,7 @@ function startFallingImages() {
         'https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(30).png'
     ];
 
-    const usedImages = new Set(); // To ensure no repetition
+    let usedImages = new Set(); // To ensure no repetition
 
     function createFallingImage() {
         if (usedImages.size === imageUrls.length) usedImages.clear(); // Reset when all images are used
@@ -33,7 +33,10 @@ function startFallingImages() {
         const img = document.createElement('img');
         img.src = imageUrls[randomIndex];
         img.style.left = Math.random() * 100 + 'vw';
-        img.style.animationDuration = (5 + Math.random() * 3) + 's'; // Adjust speed
+
+        // Prevent images from colliding
+        const duration = 8 + Math.random() * 4; // Random duration between 8 and 12 seconds
+        img.style.animationDuration = duration + 's';
 
         imageContainer.appendChild(img);
 
@@ -41,6 +44,6 @@ function startFallingImages() {
         img.addEventListener('animationend', () => img.remove());
     }
 
-    // Create a falling image every 5 seconds
-    setInterval(createFallingImage, 5000);
+    // Create a falling image every 7 seconds (slower spawn rate)
+    setInterval(createFallingImage, 7000);
 }
