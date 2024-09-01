@@ -19,11 +19,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4caf50; /* Base green color */
-    background-image: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png'), linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+    flex-direction: column; /* Stack items vertically */
+    background-color: #4caf50; /* Fallback color */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+        url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-blend-mode: overlay;
+    background-position: center;
 }
 
 .hidden {
@@ -66,17 +69,12 @@ body {
 #orphic {
     max-width: 60%;
     height: auto;
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    top: -20px;
+    margin-bottom: 20px; /* Spacing between images */
 }
 
 #pencet-aku {
     max-width: 50%;
     height: auto;
-    display: block;
-    margin: 20px auto;
 }
 
 /* Mobile Adjustments */
