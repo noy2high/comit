@@ -1,18 +1,46 @@
-// Wait for the document to be fully loaded
-document.addEventListener("DOMContentLoaded", function() {
-    // Set a timeout to transition to Stage 2 after 7 seconds
-    setTimeout(function() {
-        document.getElementById('loading-screen').style.display = 'none'; // Hide Stage 1
-        document.getElementById('stage-2').style.display = 'flex'; // Show Stage 2
-        startPolaroidRotation(); // Start rotating polaroid images
-    }, 7000); // 7 seconds delay
-});
+document.addEventListener('DOMContentLoaded', () => {
+    // Stage 1: Show stage 2 after 7 seconds
+    setTimeout(() => {
+        document.getElementById('loading-screen').style.display = 'none';
+        document.getElementById('stage-2').style.display = 'flex';
+    }, 7000);
 
-function startPolaroidRotation() {
-    const polaroid = document.getElementById('polaroid-image');
-    let index = 1;
-    setInterval(function() {
-        polaroid.src = `https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(${index}).png`;
-        index = (index % 30) + 1; // Loop through images 1 to 30
-    }, 5000); // Change image every 5 seconds
-}
+    // Stage 2: Show stage 3 on clicking 'Pencet Aku'
+    document.getElementById('pencet-aku').addEventListener('click', () => {
+        document.getElementById('stage-2').style.display = 'none';
+        document.getElementById('stage-3').style.display = 'flex';
+    });
+
+    // Stage 3: Image navigation
+    const loveLetterImages = [
+        'https://raw.githubusercontent.com/noy2high/comit/main/images/Love%20Letter%20(1).png',
+        'https://raw.githubusercontent.com/noy2high/comit/main/images/Love%20Letter%20(2).png',
+        'https://raw.githubusercontent.com/noy2high/comit/main/images/Love%20Letter%20(3).png',
+        // Add more image URLs if needed
+    ];
+
+    let currentIndex = 0;
+    const loveLetterImage = document.getElementById('love-letter');
+    const leftBtn = document.getElementById('left-btn');
+    const rightBtn = document.getElementById('right-btn');
+
+    function updateImage(index) {
+        if (index >= 0 && index < loveLetterImages.length) {
+            loveLetterImage.src = loveLetterImages[index];
+        }
+    }
+
+    rightBtn.addEventListener('click', () => {
+        if (currentIndex < loveLetterImages.length - 1) {
+            currentIndex++;
+            updateImage(currentIndex);
+        }
+    });
+
+    leftBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateImage(currentIndex);
+        }
+    });
+});
