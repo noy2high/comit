@@ -96,27 +96,44 @@ body::before {
 
 /* Orphic Image */
 #orphic-image {
-  width: 80%;
-  max-width: 300px;
-  margin-top: 10px;
+  position: absolute;
+    top: 5%;
+    /* Positioned 5% from the top */
+    width: 80%;
+    /* Adjust size as needed */
+    max-width: 400px;
+    /* Max width for larger screens */
+    left: 50%;
+    transform: translate(-50%, 0);
+    /* Center horizontally */
 }
 
 /* Polaroid Image */
 #polaroid-image {
-  width: 180px;
-  height: auto;
-  /* Maintain aspect ratio */
-  margin: 20px 0;
-  /* Adjust margin to prevent collision */
+  position: absolute;
+    top: 25%;
+    /* Adjusted to ensure more space between images */
+    width: 150px;
+    /* Adjust size as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+    left: 50%;
+    transform: translate(-50%, 0);
+    /* Center horizontally */
 }
 
 /* Pencet Aku Button */
 #pencet-aku {
-  width: 70%;
-  max-width: 300px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  /* Indicate interactivity */
+  position: absolute;
+    bottom: 10%;
+    /* Positioned 10% from the bottom */
+    width: 60%;
+    /* Adjust size as needed */
+    max-width: 300px;
+    /* Max width for larger screens */
+    left: 50%;
+    transform: translate(-50%, 0);
+    /* Center horizontally */
 }
 
 /* Stage 3: Love Letter Viewer */
