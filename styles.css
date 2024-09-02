@@ -114,8 +114,8 @@ body::before {
 /* Polaroid Image */
 #polaroid-image {
   position: absolute;
-  top: 45%;
-  /* Positioned 45% from the top (adjusted for better spacing) */
+  top: 40%;
+  /* Moved slightly higher */
   width: 150px;
   /* Adjust size as needed */
   height: auto;
