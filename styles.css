@@ -20,6 +20,7 @@ body::before {
     z-index: -1; /* Ensure it's below everything */
 }
 
+/* Stage 1: Loading Screen */
 #loading-screen {
     position: fixed;
     top: 0;
@@ -73,34 +74,34 @@ body::before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1; /* Below the loading screen */
-    background: rgba(0, 0, 0, 0); /* Transparent background */
+    background: rgba(0, 0, 0, 0.75); /* Dark overlay for Stage 2 */
 }
 
 /* Image Styles */
 .image {
     display: block;
-    max-width: 80%; /* Adjust size for mobile */
+    max-width: 70%; /* Adjust size for mobile */
     height: auto;
-    margin: 20px 0;
+    margin: 10px 0; /* Closer spacing */
 }
 
 .orphic-image {
-    margin-top: 30px;
-    width: 70%; /* Adjust size for Orphic image */
+    margin-top: 20px; /* Adjust top margin */
+    width: 60%; /* Adjust size for Orphic image */
 }
 
 .polaroid-image {
-    width: 60%; /* Adjust size for Polaroid images */
+    width: 50%; /* Adjust size for Polaroid images */
 }
 
 .pencet-aku-image {
-    margin-bottom: 30px;
-    width: 50%; /* Adjust size for Pencet Aku image */
+    margin-bottom: 20px; /* Adjust bottom margin */
+    width: 40%; /* Adjust size for Pencet Aku image */
 }
