@@ -1,123 +1,102 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-  /* Prevent scrolling */
-  background-color: #013220;
-  /* Dark green background color */
-  position: relative;
-  /* Ensure the overlay and content are positioned relative to body */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent scrolling */
+    background-color: #013220; /* Dark green background color */
+    position: relative; /* Ensure the overlay and content are positioned relative to body */
 }
 
 /* Background Image with Dark Overlay */
 body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center fixed;
-  /* Background image */
-  background-size: cover;
-  /* Ensure background image covers the area */
-  opacity: 0.75;
-  /* Black overlay with 75% opacity */
-  z-index: -1;
-  /* Ensure it's below everything */
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://raw.githubusercontent.com/noy2high/comit/main/images/background.png') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensure background image covers the area */
+    opacity: 0.75; /* Black overlay with 75% opacity */
+    z-index: -1; /* Ensure it's below everything */
 }
 
 /* Stage 1: Loading Screen */
 #loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
-  /* Dark overlay for loading screen */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  /* On top of everything */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Dark overlay for loading screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* On top of everything */
 }
 
 /* Custom Loading Animation */
 .loader {
-  width: 50px;
-  aspect-ratio: 1;
-  color: #90deb2;
-  background:
-    radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
-    radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-    linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
-    linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
-  background-size: 50% 50%;
-  background-repeat: no-repeat;
-  position: relative;
+    width: 50px;
+    aspect-ratio: 1;
+    color: #90deb2;
+    background:
+        radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+        radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+        linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+        linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 .loader:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: inherit;
-  opacity: 0.4;
-  animation: l3 1s infinite;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0.4;
+    animation: l3 1s infinite;
 }
 
 @keyframes l3 {
-  to {
-    transform: scale(1.8);
-    opacity: 0;
-  }
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
 }
 
 /* Stage 2: Content */
 #stage-2 {
-  display: none;
-  /* Hidden initially */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-  /* Center items vertically */
-  align-items: center;
-  /* Center items horizontally */
-  z-index: 1;
-  /* On top of background-content */
-  background-color: rgba(0, 0, 0, 0.75);
+    display: none; /* Hidden initially */
+    position: fixed; /* Use fixed positioning to cover the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    background-color: rgba(0, 0, 0, 0.75); /* Dark overlay for Stage 2 */
+    z-index: 1; /* On top of background-content */
 }
 
 /* Orphic Image */
 #orphic-image {
-  width: 70%;
-  /* Adjust size as needed */
-  max-width: 500px;
-  /* Max width for larger screens */
-  margin-bottom: 10px;
-  /* Space between Orphic and Polaroid */
+    width: 70%; /* Adjust size as needed */
+    max-width: 500px; /* Max width for larger screens */
+    margin-bottom: 10px; /* Space between Orphic and Polaroid */
 }
 
 /* Polaroid Image */
 #polaroid-image {
-  width: 200px;
-  /* Adjust size as needed */
-  height: auto;
-  /* Maintain aspect ratio */
-  margin-bottom: 10px;
-  /* Space between Polaroid and Pencet Aku */
+    width: 200px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space between Polaroid and Pencet Aku */
 }
 
 /* Pencet Aku Button */
 #pencet-aku {
-  width: 50%;
-  /* Adjust size as needed */
-  max-width: 300px;
-  /* Max width for larger screens */
+    width: 50%; /* Adjust size as needed */
+    max-width: 300px; /* Max width for larger screens */
 }
