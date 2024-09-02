@@ -88,18 +88,11 @@ body::before {
     margin-bottom: 20px; /* Space between Orphic and Polaroid */
 }
 
-/* Polaroid Images */
-#polaroids {
-    display: flex;
-    flex-wrap: wrap; /* Allow images to wrap */
-    justify-content: center; /* Center polaroids horizontally */
-    gap: 10px; /* Space between images */
-    margin-bottom: 20px; /* Space between Polaroid and Pencet Aku */
-}
-
-#polaroids img {
-    width: 100px; /* Adjust size as needed */
+/* Polaroid Image */
+#polaroid-image {
+    width: 200px; /* Adjust size as needed */
     height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Space between Polaroid and Pencet Aku */
 }
 
 /* Pencet Aku Button */
