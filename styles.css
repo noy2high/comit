@@ -100,31 +100,29 @@ body::before {
 /* Orphic Image */
 #orphic-image {
   position: absolute;
-  top: 10%;
-  /* Positioned 10% from the top */
+  top: 5%;
+  /* Positioned 5% from the top */
   width: 80%;
   /* Adjust size as needed */
   max-width: 400px;
   /* Max width for larger screens */
-  /* Center horizontally */
   left: 50%;
-  margin-left: -40%;
-  /* Adjust to center horizontally */
+  transform: translateX(-50%);
+  /* Center horizontally */
 }
 
 /* Polaroid Image */
 #polaroid-image {
   position: absolute;
-  top: 50%;
-  /* Center vertically in the middle of the screen */
+  top: 45%;
+  /* Positioned 45% from the top (adjusted for better spacing) */
   width: 150px;
   /* Adjust size as needed */
   height: auto;
   /* Maintain aspect ratio */
-  /* Center horizontally */
   left: 50%;
-  margin-left: -75px;
-  /* Adjust to center horizontally */
+  transform: translateX(-50%);
+  /* Center horizontally */
 }
 
 /* Pencet Aku Button */
@@ -136,8 +134,7 @@ body::before {
   /* Adjust size as needed */
   max-width: 300px;
   /* Max width for larger screens */
-  /* Center horizontally */
   left: 50%;
-  margin-left: -150px;
-  /* Adjust to center horizontally */
+  transform: translateX(-50%);
+  /* Center horizontally */
 }
