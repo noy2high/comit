@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  overflow: hidden;
+  overflow: auto;
   /* Prevent scrolling */
   background-color: #013220;
   /* Dark green background color */
@@ -107,21 +107,21 @@ body::before {
   max-width: 400px;
   /* Max width for larger screens */
   left: 50%;
-  transform: translate(0px, -25%);
+  transform: translateX(-50%);
   /* Center horizontally */
 }
 
 /* Polaroid Image */
 #polaroid-image {
   position: absolute;
-  top: 40%;
+  top: 35%;
   /* Moved slightly higher */
-  width: 30%;
+  width: 150px;
   /* Adjust size as needed */
   height: auto;
   /* Maintain aspect ratio */
   left: 50%;
-  transform: translate(0px, 0%);
+  transform: translateX(-50%);
   /* Center horizontally */
 }
 
@@ -135,6 +135,6 @@ body::before {
   max-width: 300px;
   /* Max width for larger screens */
   left: 50%;
-  transform: translate(0px, 25%);
+  transform: translateX(-50%);
   /* Center horizontally */
 }
