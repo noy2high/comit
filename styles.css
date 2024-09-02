@@ -97,43 +97,43 @@ body::before {
 /* Orphic Image */
 #orphic-image {
   position: absolute;
-    top: 5%;
-    /* Positioned 5% from the top */
-    width: 80%;
-    /* Adjust size as needed */
-    max-width: 400px;
-    /* Max width for larger screens */
-    left: 50%;
-    transform: translate(-50%, 0);
-    /* Center horizontally */
+  top: 5%;
+  /* Positioned 5% from the top */
+  width: 80%;
+  /* Adjust size as needed */
+  max-width: 400px;
+  /* Max width for larger screens */
+  left: 50%;
+  transform: translate(-50%, 0);
+  /* Center horizontally */
 }
 
 /* Polaroid Image */
 #polaroid-image {
   position: absolute;
-    top: 25%;
-    /* Adjusted to ensure more space between images */
-    width: 150px;
-    /* Adjust size as needed */
-    height: auto;
-    /* Maintain aspect ratio */
-    left: 50%;
-    transform: translate(-50%, 0);
-    /* Center horizontally */
+  top: 25%;
+  /* Adjusted to ensure more space between images */
+  width: 150px;
+  /* Adjust size as needed */
+  height: auto;
+  /* Maintain aspect ratio */
+  left: 50%;
+  transform: translate(-50%, 0);
+  /* Center horizontally */
 }
 
 /* Pencet Aku Button */
 #pencet-aku {
   position: absolute;
-    bottom: 10%;
-    /* Positioned 10% from the bottom */
-    width: 60%;
-    /* Adjust size as needed */
-    max-width: 300px;
-    /* Max width for larger screens */
-    left: 50%;
-    transform: translate(-50%, 0);
-    /* Center horizontally */
+  bottom: 10%;
+  /* Positioned 10% from the bottom */
+  width: 60%;
+  /* Adjust size as needed */
+  max-width: 300px;
+  /* Max width for larger screens */
+  left: 50%;
+  transform: translate(-50%, 0);
+  /* Center horizontally */
 }
 
 /* Stage 3: Love Letter Viewer */
@@ -147,16 +147,23 @@ body::before {
   text-align: center;
   z-index: 3;
   /* On top of everything */
+  background-color: rgba(0, 0, 0, 0.75);
+  /* Maintain dark overlay */
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Love Letter Image */
 #love-letter-image {
-  width: 80%;
-  max-width: 400px;
+  max-width: 80%;
   /* Adjust size for better view on mobile */
   height: auto;
   /* Maintain aspect ratio */
-  margin-bottom: 20px;
+  margin: 0 auto;
+  /* Center horizontally */
+  display: block;
 }
 
 /* Navigation Buttons */
@@ -166,7 +173,9 @@ body::before {
   /* Smaller size */
   cursor: pointer;
   position: absolute;
-  bottom: 20px;
+  top: 50%;
+  /* Align vertically in the middle of Love Letter */
+  transform: translateY(-50%);
 }
 
 #left-button {
