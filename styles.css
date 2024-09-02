@@ -100,8 +100,8 @@ body::before {
 /* Orphic Image */
 #orphic-image {
   position: absolute;
-  top: 5%;
-  /* Positioned 5% from the top */
+  top: 10%;
+  /* Positioned 10% from the top */
   width: 80%;
   /* Adjust size as needed */
   max-width: 400px;
@@ -130,8 +130,8 @@ body::before {
 /* Pencet Aku Button */
 #pencet-aku {
   position: absolute;
-  bottom: 5%;
-  /* Positioned 5% from the bottom */
+  bottom: 10%;
+  /* Positioned 10% from the bottom */
   width: 60%;
   /* Adjust size as needed */
   max-width: 300px;
