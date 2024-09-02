@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Project</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Project</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <!-- Stage 1: Loading Animation -->
-  <div id="loading-screen">
-    <div class="loader"></div>
-  </div>
+    <!-- Stage 1: Loading Animation -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
 
-  <!-- Stage 2: Content -->
-  <div id="stage-2" class="hidden">
-    <!-- Orphic Image -->
-    <img src="https://raw.githubusercontent.com/noy2high/comit/main/images/ORPHIC.png" alt="Orphic Image" class="image orphic-image">
+    <!-- Background and Dark Overlay -->
+    <div id="background-content"></div>
 
-    <!-- Polaroid Image (changing) -->
-    <img src="https://raw.githubusercontent.com/noy2high/comit/main/images/Vintage%20Effect%20Polaroid%20(1).png" alt="Polaroid Image" class="image polaroid-image" id="polaroid">
+    <!-- Stage 2: Content -->
+    <div id="stage-2">
+        <!-- Orphic Image -->
+        <img src="https://raw.githubusercontent.com/noy2high/comit/main/images/ORPHIC.png" id="orphic-image" alt="Orphic Image">
 
-    <!-- Pencet Aku Image -->
-    <img src="https://raw.githubusercontent.com/noy2high/comit/main/images/pencet%20aku.png" alt="Pencet Aku" class="image pencet-aku-image">
-  </div>
+        <!-- Polaroid Images -->
+        <div id="polaroids">
+            <!-- Initially empty, images will be added via JavaScript -->
+        </div>
 
-  <script src="script.js"></script>
+        <!-- Pencet Aku Button -->
+        <img src="https://raw.githubusercontent.com/noy2high/comit/main/images/pencet%20aku.png" id="pencet-aku" alt="Pencet Aku Button">
+    </div>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
